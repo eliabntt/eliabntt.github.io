@@ -33,9 +33,7 @@ const Navigation = React.forwardRef((props, ref) => {
 
   React.useEffect(() => {
     if (!navbarDimensions) return;
-    navBottom - scrollPosition >= ref.current.offsetTop
-      ? setIsTop(false)
-      : setIsTop(true);
+    navBottom - scrollPosition >= 0 ? setIsTop(false) : setIsTop(true);
 
     const sections = document.querySelectorAll('.target-section');
     sections.forEach(function(current) {
