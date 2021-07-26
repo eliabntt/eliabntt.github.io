@@ -1,5 +1,5 @@
-import React from "react";
-import { BrowserRouter, Route } from "react-router-dom";
+import React from 'react';
+import { BrowserRouter, Route } from 'react-router-dom';
 import {
   navBar,
   mainBody,
@@ -9,27 +9,30 @@ import {
   skills,
   getInTouch,
   blog,
-  experiences
-} from "./config.js";
-import MainBody from "./main/MainBody";
-import AboutMe from "./main/AboutMe";
-import Project from "./main/Project";
-import Footer from "./main/Footer";
-import Navbar from "./main/Navbar";
-import Skills from "./main/Skills";
-import { Blog } from "./blogs/Blog";
-import BlogPost from "./blogs/BlogPost";
-import GetInTouch from "./main/GetInTouch.jsx";
-import Leadership from "./main/Leadership.jsx";
-
-import Experience from "./main/Experience";
+  experiences,
+  onlineWritings
+} from './config.js';
+import MainBody from './main/MainBody';
+import AboutMe from './main/AboutMe';
+import Project from './main/Project';
+import Footer from './main/Footer';
+import Navbar from './main/Navbar';
+import Skills from './main/Skills';
+import Blog from './blogs/Blog';
+import Publication from './main/Publications';
+import BlogPost from './blogs/BlogPost';
+import GetInTouch from './main/GetInTouch.jsx';
+import Leadership from './main/Leadership.jsx';
+import Experience from './main/Experience';
 
 const Home = React.forwardRef((props, ref) => {
   return (
     <>
       <MainBody
         gradient={mainBody.gradientColors}
-        title={`${mainBody.firstName} ${mainBody.middleName} ${mainBody.lastName}`}
+        title={`${mainBody.firstName} ${mainBody.middleName} ${
+          mainBody.lastName
+        }`}
         message={mainBody.message}
         icons={mainBody.icons}
         ref={ref}
@@ -43,11 +46,7 @@ const Home = React.forwardRef((props, ref) => {
           resume={about.resume}
         />
       )}
-      {
-        experiences.show && (
-          <Experience experiences={experiences}/>
-        )
-      }
+      {experiences.show && <Experience experiences={experiences} />}
       {repos.show && (
         <Project
           heading={repos.heading}
@@ -64,6 +63,13 @@ const Home = React.forwardRef((props, ref) => {
           imageSize={leadership.imageSize}
         />
       )}
+      {onlineWritings.show && (
+        <Publication
+          quote={onlineWritings.quote}
+          heading={onlineWritings.heading}
+          list={onlineWritings.list}
+        />
+      )}
       {skills.show && (
         <Skills
           heading={skills.heading}
@@ -71,7 +77,6 @@ const Home = React.forwardRef((props, ref) => {
           softSkills={skills.softSkills}
         />
       )}
-      
     </>
   );
 });
@@ -80,11 +85,15 @@ const App = () => {
   const titleRef = React.useRef();
 
   return (
-    <BrowserRouter basename={process.env.PUBLIC_URL + "/"}>
+    <BrowserRouter basename={process.env.PUBLIC_URL + '/'}>
       {navBar.show && <Navbar ref={titleRef} />}
       <Route path="/" exact component={() => <Home ref={titleRef} />} />
-      {true && <Route path="/blog" exact component={Blog} />}
-      {true && <Route path="/blog/:id" component={BlogPost} />}
+      {blog.show && (
+        <Route path="/blog" exact component={Blog} ref={titleRef} />
+      )}
+      {blog.show && (
+        <Route path="/blog/:id" component={BlogPost} ref={titleRef} />
+      )}
       <Footer>
         {getInTouch.show && (
           <GetInTouch
