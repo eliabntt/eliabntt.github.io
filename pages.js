@@ -1,15 +1,15 @@
-const ghpages = require("gh-pages");
+const ghpages = require('gh-pages');
 const pathname = `${__dirname}/build`;
-const repoURL = "https://github.com/eliabntt/eliabntt.github.io.git";
+const repoURL = 'https://github.com/eliabntt/tmp-react';
 
 ghpages.publish(
   pathname,
   {
-    branch: "master",
-    repo: repoURL,
+    branch: 'deploy',
+    repo: repoURL
   },
-  (err) => {
-    if (err) console.log("ERROR: ", err);
-    else console.log("PUBLISHED");
+  err => {
+    if (err) console.log('ERROR: ', err);
+    else console.log('PUBLISHED');
   }
 );
