@@ -1,0 +1,14 @@
+title: Elia Bonetto # your name (or website title) here
+logo: "/Images/me.png?raw=true" # your photo (or logo) here
+description: > # your text below (remove <br> elements if you don't need line breaks)
+  Ph.D. student @Max Planck Institute for Intelligent Systems --- Tübingen, Germany
+  Enrolled in the IMPRS-IS program.
+  <br><br>
+  Supervisors: Aamir Ahmad, Michael J. Black and Jöerg Stükler.
+  <br><br>
+  Roboticist, computer visionist, tech enthusiast, movie-eater.
+  <br><br>
+  <a href="https://www.linkedin.com/in/example/">View My LinkedIn Profile</a> 
+  
+theme: jekyll-theme-hacker
+google_analytics: G-ECRPQ8Z69D # your Google Analytics tracking ID here
