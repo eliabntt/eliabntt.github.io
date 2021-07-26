@@ -4,7 +4,7 @@
 
 ### Ph.D. projects 
 
-[Project 1 Title](https://eliabntt.github.io/active_v_slam/)
+[Active V-SLAM](https://eliabntt.github.io/active_v_slam/)
 
 ### Older&Side projects
 
