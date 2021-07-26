@@ -1,18 +1,54 @@
 {
-  "name": "react",
-  "version": "0.0.0",
+  "name": "eliabntt-website",
+  "description": "My personal website.",
+  "homepage": "https://eliabntt.github.io/",
+  "version": "0.0.1",
   "private": true,
+  "author": {
+    "name": "Elia Bonetto",
+    "email": "eliabntt94@gmail.com",
+    "url": "https://github.com/eliabntt"
+  },
   "dependencies": {
-    "react": "^17.0.0",
-    "react-dom": "^17.0.0"
+    "axios": "^0.19.2",
+    "bootstrap": "^4.5.2",
+    "gh-pages": "^2.2.0",
+    "jquery": "^3.5.1",
+    "node-sass": "^4.14.1",
+    "popper.js": "^1.16.1",
+    "prop-types": "^15.7.2",
+    "react": "^16.14.0",
+    "react-bootstrap": "^1.4.0",
+    "react-dom": "^16.14.0",
+    "react-loading-skeleton": "^2.1.1",
+    "react-router": "^5.2.0",
+    "react-router-dom": "^5.2.0",
+    "react-scripts": "^3.4.4",
+    "react-typist": "^2.0.5",
+    "typescript": "^3.9.7"
   },
   "scripts": {
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
+    "test": "react-scripts test",
+    "eject": "react-scripts eject",
+    "custom-deploy": "node pages.js"
   },
-  "devDependencies": {
-    "react-scripts": "latest"
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
   }
 }
