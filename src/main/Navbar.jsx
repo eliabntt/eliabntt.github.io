@@ -12,7 +12,6 @@ import {
   blog,
   onlineWritings
 } from '../config.js';
-import { func } from 'prop-types';
 
 const Navigation = React.forwardRef((props, ref) => {
   const [isTop, setIsTop] = useState(true);
@@ -67,7 +66,7 @@ const Navigation = React.forwardRef((props, ref) => {
       <Navbar.Toggle onClick={() => setExpanded(expanded ? false : "expanded")} aria-controls="basic-navbar-nav" />
       <Navbar.Collapse id="basic-navbar-nav">
         <Nav className="mr-auto">
-          {repos.show && (
+          {blog.show && (
             <NavLink onClick={() => setExpanded(false)} title="Blog" active={active} anchor="blog-div" />
           )}
 
