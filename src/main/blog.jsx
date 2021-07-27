@@ -3,7 +3,7 @@ const bloglist = [];
 
 const blog = new BlogBuilder({
   title: "My First Blog",
-  image: "../Images/me.png",
+  image: require("../img/me.png"),
   description:
     "Description Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptatem, dolores? Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quia provident similique corporis rem ullam odio excepturi voluptas harum, architecto sit!",
 })
@@ -17,7 +17,7 @@ const blog = new BlogBuilder({
 
 const blog1 = new BlogBuilder({
   title: "My Second Blog",
-  image: "../Images/me.png",
+  image: require("../img/me.png"),
   description:
     "Description Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure tempore aut neque consectetur voluptatem quam nihil, facere earum adipisci, animi beatae dicta maiores, ipsam delectus ab molestias dolorum aperiam? Sapiente?",
 })

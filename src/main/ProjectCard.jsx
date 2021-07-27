@@ -44,7 +44,7 @@ const CardButtons = ({ svn_url }) => {
         href={`${svn_url}/archive/master.zip`}
         className="btn btn-outline-secondary mr-3"
       >
-        <i className="fab fa-github" /> Clone Project
+        <i className="fab fa-github" /> Download zip
       </a>
       <a href={svn_url} target=" _blank" className="btn btn-outline-secondary">
         <i className="fab fa-github" /> Repo
@@ -83,7 +83,7 @@ const Language = ({ languages_url, repo_url }) => {
         ? array.map((language) => (
             <a
               key={language} 
-              className="badge badge-light card-link"
+              className="badge-dark badge card-link"
               href={repo_url + `/search?l=${language}`}
               target=" _blank"
             >

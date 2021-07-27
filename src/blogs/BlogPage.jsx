@@ -2,6 +2,7 @@ import React from "react";
 import { BlogBuilder } from "./BlogBuilder";
 import bloglist from "../main/blog";
 import { NavHashLink as Link } from 'react-router-hash-link';
+import { defaultModifiers } from "@popperjs/core/lib/popper-lite";
 
 const scrollWithOffset = (el) => {
   const yCoordinate = el.getBoundingClientRect().top + window.pageYOffset;
@@ -9,36 +10,33 @@ const scrollWithOffset = (el) => {
   window.scrollTo({ top: yCoordinate + yOffset, behavior: 'smooth' }); 
 }
 
-const Blog = (props) => {
+const BlogPage = React.forwardRef((props,ref) => {
   return (
-    <div id="blog-div" className="container-lg mt-5 bg-blue">
-      <h1 className="text-center">Peeking in</h1>
+    <div id="big-blog-div" className="container-lg mt-5 bg-blue">
+      <h1 id="big-blog-div" className="text-center" ref={ref}>Peeking in</h1>
       {bloglist.map((value, index) => {
         return (
           <BlogCard
+            id={index}
             key={index}
             title={value.title}
             description={value.description}
-            image={value.image}
             index={index}
+            image={value.image}
           />
         );
-      }).slice(0,3)}
-      {bloglist.length > 1 ?   
-      <Link to={`/blog#big-blog-div`} scroll={el => scrollWithOffset(el)}>
-                More articles here...{" "}
-      </Link> : <br/>}
+      })}
     </div>
   );
-};
+});
 
-const BlogCard = ({ index, title, image, description }) => {
+const BlogCard = ({ id, index, title, image, description }) => {
   return (
-    <div className="m-5">
+    <div className="m-5" id={id}>
       <div className="">
         <div className="row">
           <div className="col-4 col-lg-12">
-            {<img src={image} className="card-img" alt="..." />}
+            {<img src={image} className="card-img" alt="..." style={{ width: '14rem' }}/>}
           </div>
           <div className="col-8 col-lg-12">
             <div className="">
@@ -56,4 +54,4 @@ const BlogCard = ({ index, title, image, description }) => {
   );
 };
 
-export {Blog, BlogCard};
+export default BlogPage;

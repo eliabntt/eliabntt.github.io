@@ -24,10 +24,11 @@ const Footer = props => {
             Inspired by the work of <i className="fas fa-code" /> by{' '}
             <a
               className="badge"
+              style={{ color: 'black' }}
               rel="noopener"
-              target=" _blue"
+              target=" _bue"
               href="https://github.com/hashirshoaeb"
-              aria-label="My GitHub"
+              aria-label="Original repo"
             >
               Hashir Shoaib.
             </a>{' '}

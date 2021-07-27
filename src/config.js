@@ -29,7 +29,7 @@ const mainBody = {
 const about = {
   show: true,
   heading: 'About Me',
-  //  imageLink: require('./Images/me.png'),
+  imageLink: require('./img/me.png'),
   imageSize: 400,
   message:
     'I am Elia Bonetto, a Ph.D. student Max Planck Institute for Intelligent Systems in Tübingen, Germany. I am currently enrolled in the IMPRS-IS program under the supervision of Aamir Ahmad, Michael J. Black and Jöerg Stückler. In my free time I like watching movies, hiking, listening to music, and taking photos.',
@@ -102,12 +102,12 @@ const leadership = {
     'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Vitae auctor eu augue ut lectus arcu bibendum at varius. Libero justo laoreet sit amet cursus sit amet. Imperdiet dui accumsan sit amet nulla facilisi morbi. At auctor urna nunc id. Iaculis urna id volutpat lacus laoreet non curabitur gravida. Et magnis dis parturient montes nascetur ridiculus mus mauris. In nisl nisi scelerisque eu ultrices vitae auctor. Mattis nunc sed blandit libero volutpat sed cras ornare. Pulvinar neque laoreet suspendisse interdum consectetur libero.',
   images: [
     {
-      //    img: require("./Images/me.png"),
+      img: require("./img/me.png"),
       label: 'First slide label',
       paragraph: 'Nulla vitae elit libero, a pharetra augue mollis interdum.'
     },
     {
-      //    img: require("./Images/me.png"),
+      img: require("./img/me.png"),
       label: 'Second slide label',
       paragraph: 'Nulla vitae elit libero, a pharetra augue mollis interdum.'
     }

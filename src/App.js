@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter, Route } from 'react-router-dom';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import {
   navBar,
   mainBody,
@@ -18,12 +18,16 @@ import Project from './main/Project';
 import Footer from './main/Footer';
 import Navbar from './main/Navbar';
 import Skills from './main/Skills';
-import Blog from './blogs/Blog';
+import {Blog, BlogCard} from './blogs/Blog';
+import BlogPage from './blogs/BlogPage'
 import Publication from './main/Publications';
 import BlogPost from './blogs/BlogPost';
 import GetInTouch from './main/GetInTouch.jsx';
 import Leadership from './main/Leadership.jsx';
 import Experience from './main/Experience';
+import NotFound from './main/NotFound';
+
+import { HashRouter as Router} from 'react-router-dom'
 
 const Home = React.forwardRef((props, ref) => {
   return (
@@ -63,6 +67,8 @@ const Home = React.forwardRef((props, ref) => {
           imageSize={leadership.imageSize}
         />
       )}
+      {blog.show && (
+      <Blog/> )}
       {onlineWritings.show && (
         <Publication
           quote={onlineWritings.quote}
@@ -83,17 +89,15 @@ const Home = React.forwardRef((props, ref) => {
 
 const App = () => {
   const titleRef = React.useRef();
-
   return (
-    <BrowserRouter basename={process.env.PUBLIC_URL + '/'}>
-      {navBar.show && <Navbar ref={titleRef} />}
-      <Route path="/" exact component={() => <Home ref={titleRef} />} />
-      {blog.show && (
-        <Route path="/blog" exact component={Blog} ref={titleRef} />
-      )}
-      {blog.show && (
-        <Route path="/blog/:id" component={BlogPost} ref={titleRef} />
-      )}
+    <Router basename={process.env.PUBLIC_URL}>
+      {navBar.show && <Navbar ref={titleRef}/>}
+      <Switch>
+        <Route exact path='/' component={() => <Home ref={titleRef} />} />
+        <Route exact path='/blog' component={() => <BlogPage ref={titleRef} />} />
+        <Route path="/blog/:id" component={props => <BlogPost {...props} ref={titleRef} />} />
+        <Route component={() => <NotFound ref={titleRef} />} status={404}/>
+      </Switch>
       <Footer>
         {getInTouch.show && (
           <GetInTouch
@@ -103,7 +107,7 @@ const App = () => {
           />
         )}
       </Footer>
-    </BrowserRouter>
+    </Router>
   );
 };
 

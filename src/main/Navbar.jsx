@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { NavHashLink as Link } from 'react-router-hash-link';
 import { useScrollPosition } from '../js/useScrollPosition';
 import useResizeObserver from '../js/useResizeObserver';
 import Navbar from 'react-bootstrap/Navbar';
@@ -12,10 +12,11 @@ import {
   blog,
   onlineWritings
 } from '../config.js';
+import { func } from 'prop-types';
 
 const Navigation = React.forwardRef((props, ref) => {
   const [isTop, setIsTop] = useState(true);
-  const [scrollPosition, setScrollPosition] = useState(0);
+  const [scrollPosition, setScrollPosition] = useState(false);
   const [active, setActive] = useState('home');
   const navbarMenuRef = React.useRef();
   const navbarDimensions = useResizeObserver(navbarMenuRef);
@@ -23,6 +24,7 @@ const Navigation = React.forwardRef((props, ref) => {
   useScrollPosition(
     ({ prevPos, currPos }) => {
       if (!navbarDimensions) return;
+      if (prevPos.y == 0) {setIsTop(true); return;}
       currPos.y + ref.current.offsetTop - navbarDimensions.bottom > 5
         ? setIsTop(true)
         : setIsTop(false);
@@ -30,10 +32,10 @@ const Navigation = React.forwardRef((props, ref) => {
     },
     [navBottom]
   );
-
+  
   React.useEffect(() => {
     if (!navbarDimensions) return;
-    navBottom - scrollPosition >= 0 ? setIsTop(false) : setIsTop(true);
+    navBottom - scrollPosition >= ref.current.offsetTop ? setIsTop(false) : setIsTop(true);
 
     const sections = document.querySelectorAll('.target-section');
     sections.forEach(function(current) {
@@ -50,55 +52,53 @@ const Navigation = React.forwardRef((props, ref) => {
     });
   }, [navBottom, navbarDimensions, ref, scrollPosition]);
 
+  const [expanded, setExpanded] = useState(false);
+
   return (
     <Navbar
+      expanded={expanded} 
       ref={navbarMenuRef}
       className={` fixed-top  ${
         !isTop ? 'navbar-dark bg-dark' : 'navbar-transparent'
       }`}
       expand="lg"
     >
-      <Navbar.Brand className="brand" href={process.env.PUBLIC_URL + '/#home'}>
-        {``}
-      </Navbar.Brand>
-      <Navbar.Toggle aria-controls="basic-navbar-nav" className="toggler" />
+      <NavBar title="Home" active={isTop} anchor="blog" />
+      <Navbar.Toggle onClick={() => setExpanded(expanded ? false : "expanded")} aria-controls="basic-navbar-nav" />
       <Navbar.Collapse id="basic-navbar-nav">
         <Nav className="mr-auto">
-          {
-            <Nav.Link className="nav-link lead">
-              <Link to={process.env.PUBLIC_URL + '/blog'}>Blog</Link>
-            </Nav.Link>
-          }
+          {repos.show && (
+            <NavLink onClick={() => setExpanded(false)} title="Blog" active={active} anchor="blog-div" />
+          )}
 
           {repos.show && (
-            <Nav.Link
-              className="nav-link lead"
-              href={process.env.PUBLIC_URL + '/#projects'}
-            >
-              Projects
-            </Nav.Link>
+            <NavLink onClick={() => setExpanded(false)} title="Latest update" active={active} anchor="projects" />
           )}
+
+
           {onlineWritings.show && (
-            <NavLink title="Writings" active={active} anchor="publication" />
+            <NavLink onClick={() => setExpanded(false)} title="Writings" active={active} anchor="publication" />
           )}
+
           <Nav.Link
             className="nav-link lead"
             href={about.resume}
             target="_blank"
             rel="noreferrer noopener"
+            onClick={() => setExpanded(false)}
+            active={false}
           >
             Resume
           </Nav.Link>
+
           {about.show && (
-            <Nav.Link
-              className="nav-link lead"
-              href={process.env.PUBLIC_URL + '/#aboutme'}
-            >
-              About
-            </Nav.Link>
+            <NavLink onClick={() => setExpanded(false)} title="About Me" active={active} anchor="aboutme" />
           )}
+
+
           {skills.show && (
             <Nav.Link
+              onClick={() => setExpanded(false)}
               className="nav-link lead"
               href={process.env.PUBLIC_URL + '/#skills'}
             >
@@ -106,18 +106,28 @@ const Navigation = React.forwardRef((props, ref) => {
             </Nav.Link>
           )}
         </Nav>
-      </Navbar.Collapse>
+        </Navbar.Collapse>
     </Navbar>
   );
 });
 
-const NavLink = ({ active, title, anchor }) => (
-  <Nav.Link
-    className={`nav-link lead ${active === anchor ? 'active' : ''}`}
-    href={`${process.env.PUBLIC_URL}/#${anchor}`}
-  >
-    {title}
-  </Nav.Link>
+const NavBar = ({active, title, anchor}) => (
+  <Link className={`${
+    !active ? 'brand' : 'brand-black'
+  }`} 
+     to={`/#home`}>{}   
+     <img
+     src={process.env.PUBLIC_URL + '/favicon.ico'}
+     alt="Home"
+     width="45"
+    />
+</Link>
+);
+
+const NavLink = ({ active, title, anchor, onClick }) => (
+  <Link className={`nav-link lead ${active}`} onClick={onClick}
+     to={`/#${anchor}`}>{title}</Link>
+
 );
 
 export default Navigation;
