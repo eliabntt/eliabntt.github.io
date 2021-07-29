@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {Redirect, Route, Switch } from 'react-router-dom';
 import {
   navBar,
@@ -30,6 +30,11 @@ import NotFound from './main/NotFound';
 import { HashRouter as Router} from 'react-router-dom'
 
 import GAListener from './main/GAListener.jsx';
+
+import CookieConsent, {
+  getCookieConsentValue,
+  Cookies,
+} from "react-cookie-consent";
 
 const Home = React.forwardRef((props, ref) => {
   return (
@@ -89,20 +94,53 @@ const Home = React.forwardRef((props, ref) => {
   );
 });
 
+const MyFunc = React.forwardRef((props, titleRef)=> {    
+
+  return(
+    <>
+  <Switch>
+    <Route exact path='/' component={() => <Home ref={titleRef} />} />
+    <Route exact path='/blog' component={() => <BlogPage ref={titleRef} />} />
+    <Route path="/blog/:id" component={props => <BlogPost {...props} ref={titleRef} />} />
+    <Route path='/404' component={() => <NotFound ref={titleRef} />} status={404}/>
+    <Redirect from='*' to='/404' />
+  </Switch>
+  </>);
+});
+
 const App = () => {
+    const [value, setValue] = useState();
+
     const titleRef = React.useRef();
+    const handleAcceptCookie = () => {
+       setValue({});
+    };
+
+    const handleDeclineCookie = () => {
+      //remove google analytics cookies
+      Cookies.remove("_ga");
+      Cookies.remove("_gat");
+      Cookies.remove("_gid");
+    };
+
+    const consented = getCookieConsentValue();
+
     return (
     <Router basename={process.env.PUBLIC_URL}>
-      <GAListener trackingId="UA-203204240-1">
 
       {navBar.show && <Navbar ref={titleRef}/>}
-      <Switch>
-        <Route exact path='/' component={() => <Home ref={titleRef} />} />
-        <Route exact path='/blog' component={() => <BlogPage ref={titleRef} />} />
-        <Route path="/blog/:id" component={props => <BlogPost {...props} ref={titleRef} />} />
-        <Route path='/404' component={() => <NotFound ref={titleRef} />} status={404}/>
-        <Redirect from='*' to='/404' />
-      </Switch>
+
+      {consented === "true" && <GAListener trackingId="UA-203204240-1"><MyFunc ref={titleRef}/></GAListener>}
+      {consented !== "true" && <MyFunc ref={titleRef}/>}
+
+      <CookieConsent
+        enableDeclineButton
+        onAccept={handleAcceptCookie}
+        onDecline={handleDeclineCookie}
+      >
+        This website uses cookies to enhance the user experience.
+      </CookieConsent>
+
       <Footer>
         {getInTouch.show && (
           <GetInTouch
@@ -112,7 +150,6 @@ const App = () => {
           />
         )}
       </Footer>
-      </GAListener>
     </Router>
   );
 };
