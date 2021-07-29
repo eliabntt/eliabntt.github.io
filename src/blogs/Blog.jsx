@@ -38,7 +38,7 @@ const BlogCard = ({ index, title, image, description }) => {
       <div className="">
         <div className="row">
           <div className="col-4 col-lg-12">
-            {<img src={image} className="card-img" alt="..." style={{"max-width": "200px"}} />}
+            {<img src={image} className="card-img" alt="..." style={{maxWidth: "200px"}} />}
           </div>
           <div className="col-8 col-lg-12">
             <div className="">

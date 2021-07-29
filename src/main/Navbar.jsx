@@ -57,7 +57,7 @@ const Navigation = React.forwardRef((props, ref) => {
     <Navbar
       expanded={expanded} 
       ref={navbarMenuRef}
-      className={` fixed-top  ${
+      className={` fixed-top  ${window.location.href.substr(window.location.href.lastIndexOf('/')+1)==="404" ? 'navbar-dark navbar-transparent' : 
         !isTop ? 'navbar-dark bg-dark' : 'navbar-transparent'
       }`}
       expand="lg"
