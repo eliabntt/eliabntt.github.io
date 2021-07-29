@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import {Redirect, Route, Switch } from 'react-router-dom';
 import {
   navBar,
   mainBody,
@@ -28,6 +28,8 @@ import Experience from './main/Experience';
 import NotFound from './main/NotFound';
 
 import { HashRouter as Router} from 'react-router-dom'
+
+import GAListener from './main/GAListener.jsx';
 
 const Home = React.forwardRef((props, ref) => {
   return (
@@ -88,15 +90,18 @@ const Home = React.forwardRef((props, ref) => {
 });
 
 const App = () => {
-  const titleRef = React.useRef();
-  return (
+    const titleRef = React.useRef();
+    return (
     <Router basename={process.env.PUBLIC_URL}>
+      <GAListener trackingId="UA-203204240-1">
+
       {navBar.show && <Navbar ref={titleRef}/>}
       <Switch>
         <Route exact path='/' component={() => <Home ref={titleRef} />} />
         <Route exact path='/blog' component={() => <BlogPage ref={titleRef} />} />
         <Route path="/blog/:id" component={props => <BlogPost {...props} ref={titleRef} />} />
-        <Route component={() => <NotFound ref={titleRef} />} status={404}/>
+        <Route path='/404' component={() => <NotFound ref={titleRef} />} status={404}/>
+        <Redirect from='*' to='/404' />
       </Switch>
       <Footer>
         {getInTouch.show && (
@@ -107,6 +112,7 @@ const App = () => {
           />
         )}
       </Footer>
+      </GAListener>
     </Router>
   );
 };
