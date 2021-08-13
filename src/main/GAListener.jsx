@@ -11,7 +11,11 @@ function sendPageView(location) {
 
 function GAListener({children, trackingId, history}) {
   useEffect(() => {
-    ReactGA.initialize(trackingId, {debug: true});
+    ReactGA.initialize(trackingId, {gaOptions: { consent:'default',
+      ad_storage: 'denied',
+      analytics_storage: 'denied'
+    }
+  });
     sendPageView(history.location);
     return history.listen(sendPageView);
   }, [history, trackingId]);
