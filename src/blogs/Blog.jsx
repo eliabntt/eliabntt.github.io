@@ -1,5 +1,4 @@
-import React from "react";
-import { BlogBuilder } from "./BlogBuilder";
+import React, { useState } from "react";
 import bloglist from "../main/blog";
 import { NavHashLink as Link } from 'react-router-hash-link';
 
@@ -24,7 +23,7 @@ const Blog = (props) => {
           />
         );
       }).slice(0,3)}
-      {bloglist.length > 1 ?   
+      {bloglist.length > 3 ?   
       <Link to={`/blog#big-blog-div`} scroll={el => scrollWithOffset(el)}>
                 More articles here...{" "}
       </Link> : <br/>}
@@ -33,20 +32,27 @@ const Blog = (props) => {
 };
 
 const BlogCard = ({ index, title, image, description }) => {
+  const [buttonText,setButtonText] = useState("Expand description");
+  console.log(image);
   return (
     <div className="m-5">
       <div className="">
         <div className="row">
-          <div className="col-4 col-lg-12">
+          <div className="col-4 col-lg-12" id={index}>
             {<img src={image} className="card-img" alt="..." style={{maxWidth: "200px"}} />}
           </div>
           <div className="col-8 col-lg-12">
             <div className="">
               <h1 className="">{title}</h1>
-              <p className="lead">{description}</p>
-              <Link to={`/blog/${index}#top`} scroll={el => scrollWithOffset(el)}>
-                Read more...{" "}
-              </Link>
+              <div className="box">
+                <input type="checkbox" id={"expanded"+index}></input>
+                <p className={window.location.href.indexOf("/blog") > -1 ? "lead" : ""}>{description}</p>
+                <label htmlFor={"expanded"+index} role="button" onClick={() => (buttonText === "Expand description" ? setButtonText("Collapse") : setButtonText("Expand description"))}>{buttonText}</label>
+                <Link to={`/blog/${index}#top`} scroll={el => scrollWithOffset(el)}>
+                  Read post{" "}
+                </Link>
+            </div>
+
             </div>
           </div>
         </div>

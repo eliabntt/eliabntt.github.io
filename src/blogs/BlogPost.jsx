@@ -1,35 +1,36 @@
 import React from "react";
 import bloglist from "../main/blog";
-
 import { NavHashLink as Link } from 'react-router-hash-link';
+import NotFound from "../main/NotFound";
 
 const scrollWithOffset = (el) => {
   const yCoordinate = el.getBoundingClientRect().top + window.pageYOffset;
-  const yOffset = -80; 
+  const yOffset = -60; 
   window.scrollTo({ top: yCoordinate + yOffset, behavior: 'smooth' }); 
 }
 
 const BlogPost = React.forwardRef((props,ref) => {
-  
+  console.log(props);
   const {id} = props.match.params;
   const post = bloglist[id];
+  if (post === undefined){
+    return <NotFound ref={ref} />;
+  }
 
   return (
     <div ref={ref} className="container-lg mt-5">
       {post && (
         <div>
           <h1 className="display-2 text-center">{post.title}</h1>
-          <h3>
-          <Link to={`/blog#${id}`}>
-                Go back...{" "}
-          </Link>
-          </h3>
           <img className="img-fluid mb-2" src={post.image} alt={post.title} />
           {post.getBlog()}
           <h3>
-          <Link to={`/blog#${id}`}>
-                Go back...{" "}
-          </Link>
+          <div>
+            <button role="button" className="btn btn-outline-dark btn-lg" onClick={() => {props.history.goBack();}} style={{margin:"2px"}}>Go Back</button>
+            <Link to={`/blog#`}  scroll={el => scrollWithOffset(el)} role="button" className="btn btn-outline-dark btn-lg" >
+              Blog list{" "}
+            </Link>
+          </div>
           </h3>
         </div>
       )}
