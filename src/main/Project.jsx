@@ -13,11 +13,12 @@ const dummyProject = {
   languages_url: null,
   pushed_at: null,
 };
+
 const API = "https://api.github.com";
 // const gitHubQuery = "/repos?sort=updated&direction=desc";
 // const specficQuerry = "https://api.github.com/repos/hashirshoaeb/";
 
-const Project = ({ heading, username, length, specfic }) => {
+const Project = ({ heading, username, length, specfic, exclude}) => {
   const allReposAPI = `${API}/users/${username}/repos?sort=updated&direction=desc`;
   const specficReposAPI = `${API}/repos/${username}`;
   const dummyProjectsArr = new Array(length + specfic.length).fill(
@@ -29,26 +30,48 @@ const Project = ({ heading, username, length, specfic }) => {
   const fetchRepos = useCallback(async () => {
     let repoList = [];
     try {
+      
       // getting all repos
       const response = await axios.get(allReposAPI);
+      
+      let list = [];
+      for(let i = 0; i < response.data.length; i ++){
+        if (specfic.includes(response.data[i].name)){
+          list.push(i);
+        }
+        else if (exclude.includes(response.data[i].name)){
+          list.push(i);
+        }
+      }
+      for (let i = list.length-1; i >= 0 ; i--){
+        response.data.splice(list[i],1);
+      }
+
       // slicing to the length
-      repoList = [...response.data.slice(0, length)];
+      try{
+        repoList = [...response.data.slice(0, length - specfic.length)];
+      }
+      catch(error){
+        console.log(error);
+      }
+
       // adding specified repos
       try {
         for (let repoName of specfic) {
           const response = await axios.get(`${specficReposAPI}/${repoName}`);
-          repoList.push(response.data);
+          repoList.unshift(response.data);
         }
       } catch (error) {
         console.error(error.message);
       }
+      
       // setting projectArray
       // TODO: remove the duplication.
       setProjectsArray(repoList);
     } catch (error) {
       console.error(error.message);
     }
-  }, [allReposAPI, length, specfic, specficReposAPI]);
+  }, [allReposAPI, length, specfic, exclude, specficReposAPI]);
 
   useEffect(() => {
     fetchRepos();

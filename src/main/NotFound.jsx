@@ -14,11 +14,11 @@ const NotFound = React.forwardRef((props,ref) => {
         padding:"0",
         margin:"0"}}>
         
-          <div class="text-center container">
+          <div className="text-center container">
             <h1 id="title-404" className="display1" ref={ref}>Uh-oh page not found</h1>
           </div>
           
-          <div class="bottomleftCopyright" >
+          <div className="bottomleftCopyright" >
           <p>via GIPHY. Star Wars: © & TM Lucasfilm Ltd. All Rights Reserved.</p></div>
 
         </div>

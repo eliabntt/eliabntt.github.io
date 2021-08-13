@@ -7,34 +7,32 @@ const Footer = props => {
   return (
     <footer style={bgStyle} className="mt-auto py-5 text-center ">
       <Container>
-        <p>
-          <small className="text-muted">
-            Project code is open source and available at{' '}
-            <a
-              className="badge"
-              style={{ color: 'black' }}
-              rel="noopener"
-              target=" _bue"
+        {props.children}
+            <small>
+            Project <i className="fas fa-code" />  is open source and available {' '}
+            <i className="fab fa-github" /><a
+              className="badge badge-dark"
+              rel="noopener noreferrer"
+              target="_blank"
               href="https://github.com/eliabntt/eliabntt.github.io"
               aria-label="My website"
             >
-              <i className="fab fa-github" /> My website
+             here
             </a>{' '}
             <br />
-            Inspired by the work of <i className="fas fa-code" /> by{' '}
+            Inspired by the work of {' '}
             <a
-              className="badge"
-              style={{ color: 'black' }}
-              rel="noopener"
-              target=" _bue"
+              className="badge badge-dark"
+              rel="noopener noreferrer"
+              target="_blank"
               href="https://github.com/hashirshoaeb"
               aria-label="Original repo"
             >
               Hashir Shoaib.
             </a>{' '}
-            Thanks
-          </small>
-        </p>
+            Thanks.
+            <div>Icons made by <a href="https://www.freepik.com" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
+            </small>
       </Container>
     </footer>
   );

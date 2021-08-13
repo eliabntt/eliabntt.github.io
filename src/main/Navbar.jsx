@@ -2,36 +2,71 @@ import React, { useState } from 'react';
 import { NavHashLink as Link } from 'react-router-hash-link';
 import { useScrollPosition } from '../js/useScrollPosition';
 import useResizeObserver from '../js/useResizeObserver';
+import {useLoadEvent} from '../js/useLoadEvent';
 import Navbar from 'react-bootstrap/Navbar';
 import Nav from 'react-bootstrap/Nav';
 import {
-  mainBody,
+  news,
   repos,
   about,
   skills,
   blog,
-  onlineWritings
+  onlineWritings,
+  getInTouch
 } from '../config.js';
+import { useHistEvent } from '../js/useHistEvent';
 
-const Navigation = React.forwardRef((props, ref) => {
+const scrollWithOffset = (el) => {
+  const yCoordinate = el.getBoundingClientRect().top + window.pageYOffset;
+  const yOffset = -60; 
+  window.scrollTo({ top: yCoordinate + yOffset, behavior: 'smooth' }); 
+}
+
+const NavLinkTo = ({ active, title, anchor, onClick }) => (
+  <Link className={`nav-link lead ${active}`} onClick={onClick}
+     to={`/${anchor}#`}>{title}</Link>
+);
+
+const NavLink = ({ active, title, anchor, onClick }) => (
+  <Link className={`nav-link lead ${active}`} onClick={onClick}
+     to={`/#${anchor}`} scroll={el => scrollWithOffset(el)}>{title}</Link>
+
+);
+
+
+
+const Navigation = React.forwardRef((props, ref)  => {
   const [isTop, setIsTop] = useState(true);
   const [scrollPosition, setScrollPosition] = useState(false);
+  const [is404, setIs404] = useState(true);
   const [active, setActive] = useState('home');
   const navbarMenuRef = React.useRef();
   const navbarDimensions = useResizeObserver(navbarMenuRef);
   const navBottom = navbarDimensions ? navbarDimensions.bottom : 0;
+
   useScrollPosition(
     ({ prevPos, currPos }) => {
       if (!navbarDimensions) return;
-      if (prevPos.y == 0) {setIsTop(true); return;}
+      if (prevPos.y === 0) {setIsTop(true); }
+      else{
       currPos.y + ref.current.offsetTop - navbarDimensions.bottom > 5
         ? setIsTop(true)
         : setIsTop(false);
-      setScrollPosition(currPos.y);
+      setScrollPosition(currPos.y);}
     },
     [navBottom]
   );
   
+  useLoadEvent((is404) => {
+    if (is404.is404) setIs404(true);
+    else setIs404(false);
+  });
+
+  useHistEvent((is404) => {
+    if (is404.is404) setIs404(true);
+    else setIs404(false);
+  });
+
   React.useEffect(() => {
     if (!navbarDimensions) return;
     navBottom - scrollPosition >= ref.current.offsetTop ? setIsTop(false) : setIsTop(true);
@@ -57,27 +92,18 @@ const Navigation = React.forwardRef((props, ref) => {
     <Navbar
       expanded={expanded} 
       ref={navbarMenuRef}
-      className={` fixed-top  ${window.location.href.substr(window.location.href.lastIndexOf('/')+1)==="404" ? 'navbar-dark navbar-transparent' : 
+      className={` fixed-top  ${is404 ? 'navbar-dark navbar-transparent' : 
         !isTop ? 'navbar-dark bg-dark' : 'navbar-transparent'
       }`}
       expand="lg"
     >
-      <NavBar title="Home" active={isTop} anchor="blog" />
+      <NavBar title="Home" active={isTop} />
       <Navbar.Toggle onClick={() => setExpanded(expanded ? false : "expanded")} aria-controls="basic-navbar-nav" />
       <Navbar.Collapse id="basic-navbar-nav">
         <Nav className="mr-auto">
-          {blog.show && (
-            <NavLink onClick={() => setExpanded(false)} title="Blog" active={active} anchor="blog-div" />
-          )}
-
-          {repos.show && (
-            <NavLink onClick={() => setExpanded(false)} title="Latest update" active={active} anchor="projects" />
-          )}
-
-
-          {onlineWritings.show && (
-            <NavLink onClick={() => setExpanded(false)} title="Writings" active={active} anchor="publication" />
-          )}
+          {/* {about.show && (
+            <NavLink onClick={() => setExpanded(false)} title="About Me" active={active} anchor="aboutme" />
+          )} */}
 
           <Nav.Link
             className="nav-link lead"
@@ -89,11 +115,26 @@ const Navigation = React.forwardRef((props, ref) => {
           >
             Resume
           </Nav.Link>
+          
+          {news.show && (
+            <NavLink onClick={() => setExpanded(false)} title="News" active={active} anchor="news-div" />
+          )}        
 
-          {about.show && (
-            <NavLink onClick={() => setExpanded(false)} title="About Me" active={active} anchor="aboutme" />
+          {blog.show && (
+            <NavLink onClick={() => setExpanded(false)} title="Peeking in" active={active} anchor="blog-div" />
           )}
 
+          {blog.show && (
+            <NavLinkTo onClick={() => setExpanded(false)} title="My Blog" active={active} anchor="blog" />
+          )}
+
+          {repos.show && (
+            <NavLink onClick={() => setExpanded(false)} title="Code updates" active={active} anchor="projects" />
+          )}
+          
+          {getInTouch.show && (
+            <NavLink onClick={() => setExpanded(false)} title="Get in Touch" active={active} anchor="getintouch" />
+          )}
 
           {skills.show && (
             <Nav.Link
@@ -103,6 +144,10 @@ const Navigation = React.forwardRef((props, ref) => {
             >
               Skills
             </Nav.Link>
+          )}
+
+          {(
+            <NavLinkTo onClick={() => setExpanded(false)} title="Try this 404" active={active} anchor="404" />
           )}
         </Nav>
         </Navbar.Collapse>
@@ -121,12 +166,6 @@ const NavBar = ({active, title, anchor}) => (
      width="45"
     />
 </Link>
-);
-
-const NavLink = ({ active, title, anchor, onClick }) => (
-  <Link className={`nav-link lead ${active}`} onClick={onClick}
-     to={`/#${anchor}`}>{title}</Link>
-
 );
 
 export default Navigation;
