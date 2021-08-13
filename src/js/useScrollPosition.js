@@ -1,10 +1,12 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import { useRef } from "react";
 import { useIsomorphicLayoutEffect } from "./useIsomorphicLayoutEffect";
+import { expandbutton } from "./expandButton";
 
 const isBrowser = typeof window !== `undefined`;
 
 function getScrollPosition({ element, useWindow }) {
+  expandbutton();
   if (!isBrowser) return { x: 0, y: 0 };
 
   const target = element ? element.current : document.body;
