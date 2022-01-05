@@ -10,6 +10,7 @@ In addition to that I have personally added:
 - The images carousel in the home page
 - Several different minor/major addition like SEO support and fixing the redirection. 
 - Building sitemap correctly (`npm run sitemap`)
+- Email obfuscation
 
 Here I use the master branch as the `developement` branch, while the deploy branch is `gh-pages` 
 
