@@ -45,7 +45,7 @@ const about = {
   imageSize: 400,
   message:
     'I am Elia Bonetto, a Ph.D. student at Max Planck Institute for Intelligent Systems in Tübingen, Germany. \
-     I am currently enrolled in the IMPRS-IS program under the supervision of <a href="https://www.aamirahmad.de/">Aamir Ahmad</a>, <a href="https://ps.is.mpg.de/~black">Michael J. Black</a> and <a href="https://www.is.mpg.de/~jstueckler">Jörg Stückler</a>. \
+    I am currently enrolled in the IMPRS-IS program under the supervision of <a href="https://www.aamirahmad.de/">Aamir Ahmad</a>, and <a href="https://ps.is.mpg.de/~black">Michael J. Black</a>. \
      As you can see from the pictures above in my free time I like watching movies, hiking, taking photos, building legos, and cooking.',
   resume:
     'https://drive.google.com/file/d/1r53a25Br9VX21EHSwUB2nH5MR0UBE-mX/view?usp=sharing'
@@ -159,6 +159,21 @@ const onlineWritings = {
       url: 'https://ieeexplore.ieee.org/document/9158379',
       description:
         'We introduce a deep reinforcement learning based multi-robot formation for human motion capture.'
+    },
+    {
+      title:
+      'Enhancing Deep Semantic Segmentation of RGB-D Data with Entangled Forests',
+      url:
+      'https://ieeexplore.ieee.org/document/9412787',
+      description:
+      'Merging information coming from Entangled Forests in FuseNet to reduce the parameter size without losing performance.'
+    } ,
+    {
+      title:
+      'A Survey on Recent Advances in Transport Layer Protocols',
+      url: 'https://ieeexplore.ieee.org/document/8786240',
+      description:
+      'This paper surveys the main novelties related to transport protocols, i.e. the evolution of congestion control algorithms and the usage of ML, the proposal of brand new transport protocols, and the introduction of multipath capabilities.'
     }
   ]
 };

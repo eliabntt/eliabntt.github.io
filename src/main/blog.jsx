@@ -34,11 +34,13 @@ const irotate = new BlogBuilder({
   In this work we generate paths toward the exploration point, i.e. a frontier point. Those paths are then subdivided in 1-m-apart waypoints and, for every one of those, we compute the optimal heading. \
   The optimal heading is computed with a raytracing technique by taking into account the frustum overlap between subsequent waypoints. \
   Additionally, we do not only sum the utility of the path's waypoints but, to better capture the average contribution along a path, we use a weighted average.")
+  .addImage("./irotate1.gif")
   .addSubHeading("Second level of activeness - Updating the heading")
   .addParagraph("Once the path is chosen the robot starts moving. Taking inspiration from receiding horizon techniques, we apply an update procedure every time a waypoint is reached. \
   The idea is that, since the robot is continuosuly gathering data while it moves, there might be a better point of view located on the next waypoint position. However, differently to RH techniques \
   we do not change the global goal every time the sub-goal is reached, nor we recompute the global path, or we change objective. Therefore, we are able to keep the same long term goal even \
   while this is being influenced in a RH-fashion. Thus, we are effectively combining the benefits of RH (next viewpoint optimization), NBV planners (path's heading optimization), and frontier based exploration (long term goal).")
+  .addImage("./irotate2.gif")
   .addSubHeading("Third level of activeness - Balancing the features")
   .addParagraph("Visual (graph) SLAM has its core component on the loop closure event that is triggered when the robot recognize a previously seen place. \
   This can be achieved by comparing images' features. Therefore, keeping those in the field of view of the camera could bring benefits. \

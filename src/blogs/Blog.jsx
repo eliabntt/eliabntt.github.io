@@ -33,7 +33,6 @@ const Blog = (props) => {
 
 const BlogCard = ({ index, title, image, description }) => {
   const [buttonText,setButtonText] = useState("Expand description");
-  console.log(image);
   return (
     <div className="m-5">
       <div className="">

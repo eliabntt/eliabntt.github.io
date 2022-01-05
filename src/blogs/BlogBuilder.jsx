@@ -75,6 +75,16 @@ class BlogBuilder {
     return this;
   };
 
+  addImage = (props) => {
+         this.list.push(
+           <Fragment key={this.list.length}>
+             <img src={props} className="card-img" alt="..."/>
+             <hr />
+           </Fragment>
+         );
+         return this;
+       };
+
   addCitation = (props) => {
     this.list.push(
     <Fragment key={this.list.length}>
