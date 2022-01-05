@@ -1,2 +1,4 @@
 # https://www.robotstxt.org/robotstxt.html
 User-agent: *
+Sitemap: https://eliabntt.github.io/sitemap.xml
+Disallow: /404
