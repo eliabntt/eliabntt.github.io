@@ -4,6 +4,13 @@ This is the code to run a static react-based application as a personal webpage h
 
 Project based on the work of [Hashir Shoaeb](https://github.com/hashirshoaeb).
 
+In addition to that I have personally added:
+- Google Analytics support
+- A working blog page
+- The images carousel in the home page
+- Several different minor/major addition like SEO support and fixing the redirection. 
+- Building sitemap correctly (`npm run sitemap`)
+
 Access the webpage [here](https://eliabntt.github.io)
 
 ## Prerequisites 🍪
