@@ -126,8 +126,10 @@ const onlineWritings = {
   heading: 'Finally, something comes up!',
   quote: {
     text:
-      'Fall seven times and stand up eight.',
-    by: 'Japanese proverb'
+    'Imagination is more important than knowledge.',
+ //     'Fall seven times and stand up eight.',
+    by: 'Albert Einstein'
+    //'Japanese proverb' 
   },
   list: [
     {
@@ -143,6 +145,13 @@ const onlineWritings = {
       url: 'https://arxiv.org/abs/2105.08958',
       description:
         'We introduce an independent rotating camera to expand iRotate to different robotic platforms and reduce the overall energy consumption. Moreover, we adopt a novel state estimate to further enhance the performance of the system.'
+    },    
+    {
+      title:
+        'AirPose:  Multi-View  Fusion  Network  for Aerial  3D  Human  Pose  and  Shape  Estimation',
+      url: 'https://eliabntt.github.io/AirPose.pdf',
+      description:
+        'In AirPose we obtained a bi-drone markerless 3D motion capture system for unstructured outdoor environments. This is the first method using extrinsically uncalibrated flying cameras.'
     },
     {
       title:
@@ -164,6 +173,12 @@ const news = {
   show: true,
   heading: "Latest News!",
   list: [{
+    date: "January 2022",
+    title: 'AirPose paper accepted for publication in RA-L!',
+    url: 'https://eliabntt.github.io/AirPose.pdf',
+    //description: 'Third grade students used wireless handhelds and a large  shared display to discover strategies for control of variables in scientific experiments. The technology suite supported       activity requirements including synchronous individual       control, face-to-face discourse, and instantaneous display      updates. In an empirical study, students demonstrated       learning in both original and transfer domains.'
+},
+{
     date: "July 2021",
     title: 'Independent Camera\'s paper accepted at ECMR 2021!',
     url: 'https://arxiv.org/abs/2105.08958',
@@ -190,7 +205,7 @@ const news = {
 {
   date: "March 2020",
   title: 'Accepted in the IMPRS-IS program',
-  url: '',
+  url: 'https://imprs.is.mpg.de/',
   //description: 'Third grade students used wireless handhelds and a large  shared display to discover strategies for control of variables in scientific experiments. The technology suite supported       activity requirements including synchronous individual       control, face-to-face discourse, and instantaneous display      updates. In an empirical study, students demonstrated       learning in both original and transfer domains.'
 },
 {
