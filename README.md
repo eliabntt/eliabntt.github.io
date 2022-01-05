@@ -11,6 +11,8 @@ In addition to that I have personally added:
 - Several different minor/major addition like SEO support and fixing the redirection. 
 - Building sitemap correctly (`npm run sitemap`)
 
+Here I use the master branch as the `developement` branch, while the deploy branch is `gh-pages` 
+
 Access the webpage [here](https://eliabntt.github.io)
 
 ## Prerequisites 🍪
