@@ -4,3 +4,14 @@
 @import "./index";
 @import "./typography";
 @import "./stars";
+
+@media all and ( min-width: 560px ) {
+    .media_style { 
+        width:560px;
+        padding-bottom:315px !important;
+    }
+}
+
+.mwv-40 {
+    max-width: 40vw!important;
+}
