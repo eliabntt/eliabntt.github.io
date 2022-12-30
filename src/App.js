@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {Redirect, Route, Switch } from 'react-router-dom';
+import {Navigate, Route, Routes } from 'react-router-dom';
 import {
   navBar,
   mainBody,
@@ -115,13 +115,13 @@ const Home = React.forwardRef((props, ref) => {
 const MyFunc = React.forwardRef((props, titleRef)=> {    
 
   return(
-    <Switch>
-      <Route exact path='/' component={() => <Home ref={titleRef} />} />
-      <Route exact path='/blog' component={() => <BlogPage ref={titleRef} />} />
-      <Route path="/blog/:id" component={props => <BlogPost {...props} ref={titleRef} />} />
-      <Route path='/404' component={() => <NotFound ref={titleRef} />} status={404}/>
-      <Redirect from='*' to='/404' />
-  </Switch>
+    <Routes>
+      <Route exact path='/' element={<Home ref={titleRef} />} />
+      <Route path="/blog/:id" element={<BlogPost ref={titleRef} />} />
+      <Route exact path='/blog' element={<BlogPage ref={titleRef} />} />
+      <Route path='/404' element={<NotFound ref={titleRef} />} status={404}/>
+      <Route path='*' element={<NotFound ref={titleRef}/>} status={404}/>
+  </Routes>
   );
 });
 
@@ -155,7 +155,8 @@ const App = () => {
 
       {navBar.show && <Navbar ref={titleRef}/>}
 
-      {consented === "true" && <GAListener trackingId="UA-203204240-1"><MyFunc ref={titleRef}/></GAListener>}
+      {consented === "true" && <MyFunc ref={titleRef}/>}
+      {consented === "true" && <GAListener trackingId="UA-203204240-1"></GAListener>}
       {consented !== "true" && <MyFunc ref={titleRef}/>}
 
 

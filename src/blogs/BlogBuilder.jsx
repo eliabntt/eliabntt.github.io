@@ -23,9 +23,13 @@ class BlogBuilder {
 
   addVideo = (props) => {
     this.list.push(
-    <div key={this.list.length} className="embed-responsive embed-responsive-16by9">
-      <iframe className="embed-responsive-item" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen src={props}></iframe>
-    </div>);
+      <center>
+        <div class="container-fluid">
+    <div key={this.list.length} className="ratio ratio-16x9">
+      <iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen src={props}></iframe>
+    </div>
+    </div>
+    </center>);
     return this;
   }
 

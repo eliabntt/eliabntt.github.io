@@ -1,7 +1,8 @@
 import React from "react";
 import bloglist from "../main/blog";
-import { NavHashLink as Link } from 'react-router-hash-link';
+import { HashLink as Link } from 'react-router-hash-link';
 import NotFound from "../main/NotFound";
+import { useParams } from "react-router";
 
 const scrollWithOffset = (el) => {
   const yCoordinate = el.getBoundingClientRect().top + window.pageYOffset;
@@ -10,19 +11,21 @@ const scrollWithOffset = (el) => {
 }
 
 const BlogPost = React.forwardRef((props,ref) => {
-  console.log(props);
-  const {id} = props.match.params;
+  let params = useParams();
+  const {id} = params;
   const post = bloglist[id];
   if (post === undefined){
     return <NotFound ref={ref} />;
   }
 
   return (
-    <div ref={ref} className="container-lg mt-5">
+    <div id="blogpost" ref={ref} className="container-lg mt-5 bg-blue">
       {post && (
         <div>
-          <h1 className="display-2 text-center">{post.title}</h1>
-          <img className="img-fluid mb-2" src={post.image} alt={post.title} />
+          <h1 ref={ref} className="display-2 text-center">{post.title}</h1>
+          <center>
+          <img className="img-fluid mb-2 mwv-40" src={post.image} alt={post.title} />
+          </center>
           {post.getBlog()}
           <h3>
           <div>

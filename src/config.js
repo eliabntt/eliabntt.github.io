@@ -48,7 +48,7 @@ const about = {
     I am currently enrolled in the IMPRS-IS program under the supervision of <a href="https://www.aamirahmad.de/">Aamir Ahmad</a>, and <a href="https://ps.is.mpg.de/~black">Michael J. Black</a>. \
      As you can see from the pictures above in my free time I like watching movies, hiking, taking photos, building legos, and cooking.',
   resume:
-    'https://drive.google.com/file/d/1r53a25Br9VX21EHSwUB2nH5MR0UBE-mX/view?usp=sharing'
+    'https://drive.google.com/file/d/1F92p6wsHG9z7Q_nQ6D9HE1TE94AElYND/view?usp=share_link'
 };
 
 const repos = {
@@ -135,21 +135,21 @@ const onlineWritings = {
     {
       title:
         'iRotate: Active Visual SLAM for Omnidirectional Robots',
-      url: 'https://arxiv.org/abs/2103.11641',
+      url: 'https://www.sciencedirect.com/science/article/pii/S0921889022000550',
       description:
         'Here, we propose a three-layered Active Visual SLAM system. By leveraging the robot\'s omnidirectional capabilities, we reduce the path length necessary to explore an environment up to 39%.'
     },
     {
       title:
         'Active Visual SLAM with Independently Rotating Camera',
-      url: 'https://arxiv.org/abs/2105.08958',
+      url: 'https://ieeexplore.ieee.org/document/9568791',
       description:
         'We introduce an independent rotating camera to expand iRotate to different robotic platforms and reduce the overall energy consumption. Moreover, we adopt a novel state estimate to further enhance the performance of the system.'
     },    
     {
       title:
         'AirPose:  Multi-View  Fusion  Network  for Aerial  3D  Human  Pose  and  Shape  Estimation',
-      url: 'https://eliabntt.github.io/AirPose.pdf',
+      url: 'https://ieeexplore.ieee.org/document/9691814',
       description:
         'In AirPose we obtained a bi-drone markerless 3D motion capture system for unstructured outdoor environments. This is the first method using extrinsically uncalibrated flying cameras.'
     },
@@ -188,15 +188,28 @@ const news = {
   show: true,
   heading: "Latest News!",
   list: [{
-    date: "January 2022",
-    title: 'AirPose paper accepted for publication in RA-L!',
-    url: 'https://eliabntt.github.io/AirPose.pdf',
+    date: "December 2022",
+    title: 'GRADE accepted as presentation at the next GTC',
+    description: 'Our upcoming data generation pipeline will be presented at GTC 2023 in March. Stay tuned.'
+},{
+    date: "June - September 2022",
+    title: 'Summer internship at Nissan',
+    description: 'Worked on path following and lane change suggestion with minimal information maps and road level localization (not lane-level).'
+},{
+    date: "August 2022",
+    title: 'iRotate published in RAS',
+    url: 'https://www.sciencedirect.com/science/article/pii/S0921889022000550',
     //description: 'Third grade students used wireless handhelds and a large  shared display to discover strategies for control of variables in scientific experiments. The technology suite supported       activity requirements including synchronous individual       control, face-to-face discourse, and instantaneous display      updates. In an empirical study, students demonstrated       learning in both original and transfer domains.'
+},{
+  date: "January 2022",
+  title: 'AirPose paper accepted for publication in RA-L!',
+  url: 'https://ieeexplore.ieee.org/document/9691814',
+  //description: 'Third grade students used wireless handhelds and a large  shared display to discover strategies for control of variables in scientific experiments. The technology suite supported       activity requirements including synchronous individual       control, face-to-face discourse, and instantaneous display      updates. In an empirical study, students demonstrated       learning in both original and transfer domains.'
 },
 {
     date: "July 2021",
-    title: 'Independent Camera\'s paper accepted at ECMR 2021!',
-    url: 'https://arxiv.org/abs/2105.08958',
+    title: 'Independently rotating camera for active SLAM paper accepted at ECMR 2021!',
+    url: 'https://ieeexplore.ieee.org/document/9568791',
     //description: 'Third grade students used wireless handhelds and a large  shared display to discover strategies for control of variables in scientific experiments. The technology suite supported       activity requirements including synchronous individual       control, face-to-face discourse, and instantaneous display      updates. In an empirical study, students demonstrated       learning in both original and transfer domains.'
 },
 {

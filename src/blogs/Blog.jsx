@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import bloglist from "../main/blog";
-import { NavHashLink as Link } from 'react-router-hash-link';
+import { HashLink as Link } from 'react-router-hash-link';
 
 const scrollWithOffset = (el) => {
   const yCoordinate = el.getBoundingClientRect().top + window.pageYOffset;
