@@ -28,8 +28,6 @@ function withRouter(Component) {
 function sendPageView(location) {
   ReactGA.set({page: location.pathname});
   ReactGA.pageview(location.pathname);
-  console.log(location.pathname);
-  console.log("miiinchi");
 }
 
 function GAListener({trackingId}) {
