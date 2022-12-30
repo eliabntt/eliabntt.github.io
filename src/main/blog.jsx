@@ -90,7 +90,7 @@ const irotate = new BlogBuilder({
     keywords = {View planning for SLAM, Vision-based navigation, SLAM}\n\
     }")
   .addSubHeading("Video")
-  .addVideo("https://www.youtube.com/embed/YFD80TxXghk")
+  .addVideo("https://www.youtube.com/embed/YFD80TxXghk","iRotate")
   ;
 
 const independentcamera = new BlogBuilder({
@@ -135,7 +135,7 @@ const independentcamera = new BlogBuilder({
   Finally, we show that the more stable merged state estimate also helps in detecting more loop closures."
 )
 .addHeading("Video")
-.addVideo("https://www.youtube-nocookie.com/embed/MmAn7CMcRGA")
+.addVideo("https://www.youtube-nocookie.com/embed/MmAn7CMcRGA","independentCamera")
 .addParagraph("")
 .addHeading("Code, resources, and citation")
 .addCode("https://eliabntt.github.io/active_v_slam/")

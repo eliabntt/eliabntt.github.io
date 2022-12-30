@@ -42,7 +42,8 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "custom-deploy": "node pages.js"
+    "custom-deploy": "node pages.js",
+    "sitemap": "babel-node ./src/sitemap.js"
   },
   "eslintConfig": {
     "extends": "react-app"

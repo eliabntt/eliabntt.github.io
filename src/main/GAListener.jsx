@@ -32,12 +32,8 @@ function sendPageView(location) {
 
 function GAListener({trackingId}) {
   let location = useLocation();
-  console.log(location);
   useEffect(() => {
-    ReactGA.initialize(trackingId, {gaOptions: { consent:'default',
-      ad_storage: 'denied',
-      analytics_storage: 'denied'
-    }
+    ReactGA.initialize(trackingId, { //debug:true
   });
     return sendPageView(location);
   }, [location, trackingId]);

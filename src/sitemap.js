@@ -5,7 +5,7 @@ require("babel-register")({
 });
 //Import our routes
 const router = require("./router").default;
-const Sitemap = require("react-router-sitemap").default;
+const Sitemap = require("sitemap").default;
 
 function generateSitemap() {
   return (
