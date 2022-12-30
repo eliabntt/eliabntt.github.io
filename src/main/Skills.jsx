@@ -18,7 +18,7 @@ function Skills({ heading, hardSkills, softSkills }) {
     skillsTabRef
   );
   return (
-    <div ref={skillsTabRef} fluid className="bg-light p-5 rounded-lg container-fluid bg-white m-0" id="skills">
+    <div ref={skillsTabRef} fluid className="p-5 rounded-lg container-fluid m-0" id="skills">
       <Container className="p-5 ">
         <h2 ref={skillsTabRef} className="display-4 pb-5 text-center">
           {heading}

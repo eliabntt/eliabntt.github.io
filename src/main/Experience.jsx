@@ -9,7 +9,7 @@ const Experience = ({experiences}) => {
     return (  
         <section className="section">
             <Container>
-                <div fluid className="container-fluid bg-light p-5 rounded-lg bg-white">
+                <div fluid className="container-fluid p-5 rounded-lg">
                     <h2 className="display-4 mb-5 text-center">
                         {experiences.heading}
                     </h2>

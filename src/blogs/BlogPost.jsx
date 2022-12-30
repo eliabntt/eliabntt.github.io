@@ -20,6 +20,7 @@ const BlogPost = React.forwardRef((props,ref) => {
 
   return (
     <div id="blogpost" ref={ref} className="container-lg mt-5 bg-blue">
+      <div id="stars" className="overlay-nc"></div>
       {post && (
         <div>
           <h1 ref={ref} className="display-2 text-center">{post.title}</h1>

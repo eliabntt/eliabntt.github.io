@@ -21,7 +21,7 @@ const MainBody = React.forwardRef(
           background: `linear-gradient(136deg,${gradient})`,
           backgroundSize: "1200% 1200%",
         }}
-        className="bg-light p-5 rounded-lg container-fluid title bg-transparent bgstyle text-light min-vh-100 d-flex align-content-center align-items-center flex-wrap m-0"> 
+        className="p-5 rounded-lg container-fluid title bg-transparent bgstyle text-light min-vh-100 d-flex align-content-center align-items-center flex-wrap m-0"> 
         
         <Carousel showArrows={false} autoPlay={true} transitionTime={2000} interval={10000} dynamicHeight={false} infiniteLoop={true} showThumbs={false} showStatus={false} centerMode={false}>
                 {imgs.map((img, index) => (

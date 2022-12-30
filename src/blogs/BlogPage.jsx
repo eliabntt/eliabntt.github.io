@@ -5,6 +5,7 @@ import { BlogCard } from "./Blog";
 const BlogPage = React.forwardRef((props,ref) => {
   return (
     <div id="big-blog-div" className="container-lg mt-5 bg-blue">
+      <div id="stars" className="overlay-nc"></div>
       <h1 id="big-blog-div" className="text-center" ref={ref}>My Blog</h1>
       {bloglist.map((value, index) => {
         return (

@@ -34,7 +34,6 @@ const Project = ({ heading, username, length, specfic, exclude}) => {
       const response = await axios.get(allReposAPI);
       
       let list = [];
-      console.log()
       for(let i = 0; i < response.data.length; i ++){
         if (specfic.includes(response.data[i].name)){
           list.push(i);
@@ -93,7 +92,7 @@ const Project = ({ heading, username, length, specfic, exclude}) => {
   }, [fetchRepos]);
 
   return (
-    <div id="projects" className="bg-light p-5 rounded-lg container-fluid m-0">
+    <div id="projects" className="p-5 rounded-lg container-fluid m-0">
       <Container className="">
         <h2 className="display-4 pb-5 text-center">{heading}</h2>
         <Row>

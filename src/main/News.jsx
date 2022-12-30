@@ -3,8 +3,8 @@ import Container from 'react-bootstrap/Container';
 
 const News = ({ heading, list }) => {
   return (
-    <div id="news-div" className="container-fluid bg-light p-5 rounded-lg m-0 target-section">
-      <Container className="shadow-lg p-3 mb-5 bg-white rounded">
+    <div id="news-div" className="container-fluid p-5 rounded-lg m-0 target-section">
+      <Container className="shadow-lg p-3 mb-5 rounded">
         <h2 className="display-4 pb-5 text-center">{heading}</h2>
         <div className="px-3 mb-1 table-responsive">
             <table className="table">

@@ -11,17 +11,17 @@ const irotate = new BlogBuilder({
     That is why simultaneous localization and mapping, popularly called SLAM, has been developed since the beginning of mobile robotics. \
     This has been done mainly as a passive process where robots are only required to follow external control inputs, given directly by humans, or where previous knowledge of the environment is exploited. \
     Active SLAM, on the other hand, refers to an approach in which robots exploit their sensors measurements. Based on that information the system makes decisions to increase map information, while simultaneously maximing an objective, in an energy-efficient and fully-autonomous way.\
-    The goal of Active SLAM is to autonomously map an environment -- quickly, using low energy and without wandering around unnecessarily.",
+    The goal of Active SLAM is to autonomously map an environment -- quickly, using low energy and without wandering around unnecessarily."
 }).addHeading("Starting Point")
   .addParagraph(
-    "Active SLAM is necessary to deploy robots in different environments without any prior knowledge or need of specialized personnel for setup and tuning.\
+    ["Active SLAM is necessary to deploy robots in different environments without any prior knowledge or need of specialized personnel for setup and tuning.\
     Historically, this has been done following three main strategies: i) frontier exploration, ii) next-best-view planners, iii) receding horizon techniques.\
     However, all of them are somehow shortsighted, in that they only focus long or short term objective.\
     Instead, in this work, we address the problem by introducing a three-layered framework that continuously actively controls the camera heading to maximize the environment coverage.\
     The focus is both on the exploration of unknown parts of the environment and on the re-observation of already mapped areas for a better overall map quality and lower entropy.\
     The aim is to fuly exploit the movement of the robot along the exploration paths to simultaneously reduce the entropy of the map and explore the environment. \
     This is done both in the long term, by assigning a frontier goal and pre-optimizing the path towards it, and in the short term, by both optimizing the next viewpoint heading and with an online refinement mechanism. \
-    By combining ideas from Next-Best-View planners, Receiding-Horizon techniques, feature following methods, and frontier exploration approaches we explore an environment with paths that are up to <b>39%</b> shorter with respect to classical approaches."
+    By combining ideas from Next-Best-View planners, Receiding-Horizon techniques, feature following methods, and frontier exploration approaches we explore an environment with paths that are up to ",<b>39%</b>," shorter with respect to classical approaches."]
   )
   .addSubHeading("Setup")
   .addParagraph("We employ a three-wheeled omnidirectional ground robot based on the Festo's Robotino. The goal is to explore an environment without any previous knowledge. The robot is equipped with an RGBD camera that is used to build the 3D map of the environment. \
@@ -67,11 +67,11 @@ const irotate = new BlogBuilder({
   Next you can see an example of the weighting in action as a function of the current robot distance to the next waypoint going from -60 degrees (the best angle to follow features) to 60 degrees (the best angle to reduce entropy).")
   .addImage("./weighting.gif")
   .addHeading("Results")
-  .addParagraph("We tested our approach both in simulation and with a real robot. \
+  .addParagraph(["We tested our approach both in simulation and with a real robot. \
   In simulation we employed an augmented gazebo-based 'Cafè' environment and the AWS RoboMaker Small House World ROS package, while in the real world we recreated a office like environment in a big dedicated room.\
-  Using our three-layered active SLAM system we are capable of exploring an environment with paths that are 39% shorter with respect to the state of the art, while keeping the same accuracy of the map.\
+  Using our three-layered active SLAM system we are capable of exploring an environment with paths that are ",<b>39%</b>," shorter with respect to the state of the art, while keeping the same accuracy of the map.\
   Despite the continuos rotational movement of the robot the wheels' total rotation is not badly influenced. We also succesfully demonstrate that, by using the third level of activeness, we are able to increse the number of loop closures.\
-  Moreover, our approach show a general reduction of the absolute trajectory error among all the tries and the final entropy of the map is also reduced. ")
+  Moreover, our approach show a general reduction of the absolute trajectory error among all the tries and the final entropy of the map is also reduced. "])
   .addImage("./maps.png")
   .addHeading("Code, resources, and citation")
   .addCode("https://eliabntt.github.io/irotate_active_slam/")
@@ -102,11 +102,11 @@ const independentcamera = new BlogBuilder({
 })
 .addHeading("The Problem")
 .addParagraph(
-  "Our previous work 'iRotate: Active Visual SLAM for Omnidirectional Robots' (check it out <a href='https://eliabntt.github.io/#/blog/0#top'>here</a>) was purely based on the rototranslation capabilities of our omnidirectional robot. \
+  ["Our previous work 'iRotate: Active Visual SLAM for Omnidirectional Robots' (check it out ",<a href='https://eliabntt.github.io/#/blog/0#top'>here</a>,") was purely based on the rototranslation capabilities of our omnidirectional robot. \
   However, as good as omnidirectional platforms are, this was a huge limitation as it was restricting our method to that specific (more costly) robots. \
   Indeed, for our method to be applicable, we need a continuous camera rotational movement. This movement can be performed either by the robot itself, as it is the case with the omnidirectional platform, or by the camera itself. \
   We introduce such movement in this work. However, an independent joint attached to the camera introduces state estimation issues, unless high-end encoders are used. \
-  That is why we needed to introduce a novel joint state estimate system to address the increased noise in the orientation component."
+  That is why we needed to introduce a novel joint state estimate system to address the increased noise in the orientation component."]
 )
 .addHeading("Our independent camera")
 .addParagraph(
@@ -125,14 +125,14 @@ const independentcamera = new BlogBuilder({
 )
 .addHeading("Testing and Results")
 .addParagraph(
-  "Relying on the previous iRotate code, we proceeded by modifying our NMPC formulation to constrain the omnidirectional base to semi-holonomic (no rotational movement of the base, ever) and non-holonomic settings. \
+  ["Relying on the previous iRotate code, we proceeded by modifying our NMPC formulation to constrain the omnidirectional base to semi-holonomic (no rotational movement of the base, ever) and non-holonomic settings. \
   This is possible by simply adding velocity constraint to the NMPC formulation. Moreover, we tested a setting in which the robot kept its omnidirectional capabilities while the camera was \
   still able to rotate (while keeping the same maximum combined rotational speed). \
   First of all, in our tests we showed how the combined state estimate was ininfluent if the camera was still but helped in reducing the absolute trajectory error when both the robot and the camera rotate. \
   Moreover, we proved how iRotate shows comparable performance in semi and non-holonomic platforms, therefore proving its benefits like with did with our previous work. \
   Also, we showed how this is an incredible opportunity to further reduce the energy consumption. \
-  Indeed, we reduced of 20% the overall total rotation of the wheels, at the expense of rotating the camera, reduced of up to 50% the ATE and up to 10% the overall entropy of the generated map. \
-  Finally, we show that the more stable merged state estimate also helps in detecting more loop closures."
+  Indeed, we reduced of ", <b>20%</b>," the overall total rotation of the wheels, at the expense of rotating the camera, reduced of up to ", <b>50%</b>, " the ATE and up to ", <b>10%</b>, " the overall entropy of the generated map. \
+  Finally, we show that the more stable merged state estimate also helps in detecting more loop closures."]
 )
 .addHeading("Video")
 .addVideo("https://www.youtube-nocookie.com/embed/MmAn7CMcRGA","independentCamera")

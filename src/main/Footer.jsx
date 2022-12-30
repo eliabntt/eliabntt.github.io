@@ -2,7 +2,7 @@ import React from 'react';
 import Container from 'react-bootstrap/Container';
 
 const Footer = props => {
-  const bgStyle = { backgroundColor: '#f5f5f5' };
+  const bgStyle = { backgroundColor: '#f5f5f5', color: '#000000'};
 
   return (
     <footer style={bgStyle} className="mt-auto py-5 text-center ">
@@ -11,7 +11,7 @@ const Footer = props => {
             <small>
             Project <i className="fas fa-code" />  is open source and available {' '}
             <i className="fab fa-github" /><a
-              className="badge badge-dark"
+              className="badge bg-light text-dark"
               rel="noopener noreferrer"
               target="_blank"
               href="https://github.com/eliabntt/eliabntt.github.io"
@@ -22,7 +22,7 @@ const Footer = props => {
             <br />
             Inspired by the work of {' '}
             <a
-              className="badge badge-dark"
+              className="badge bg-light text-dark"
               rel="noopener noreferrer"
               target="_blank"
               href="https://github.com/hashirshoaeb"
