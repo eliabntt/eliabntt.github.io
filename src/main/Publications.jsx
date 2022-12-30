@@ -1,11 +1,10 @@
 import React from 'react';
 import Container from 'react-bootstrap/Container';
-import Jumbotron from 'react-bootstrap/Jumbotron';
 import Quote from './Quote';
 
 const Publication = ({ heading, list, quote }) => {
   return (
-    <Jumbotron fluid id="publication" className="bg-light m-0 target-section">
+    <div id="publication" className="bg-light p-5 rounded-lg container-fluid m-0 target-section">
       <Container className="shadow-lg p-3 mb-5 bg-white rounded">
         <h2 className="display-4 pb-5 text-center">{heading}</h2>
         <div className="px-3 mb-1">
@@ -21,7 +20,7 @@ const Publication = ({ heading, list, quote }) => {
           ))}
         </div>
       </Container>
-    </Jumbotron>
+    </div>
   );
 };
 

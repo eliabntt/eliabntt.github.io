@@ -46,7 +46,7 @@ const CardButtons = ({ svn_url }) => {
       >
         <i className="fab fa-github" /> Download zip
       </a>
-      <a href={svn_url} target=" _blank" className="btn btn-outline-secondary">
+      <a href={svn_url} target=" _blank" className="btn ms-1 me-1 btn-outline-secondary">
         <i className="fab fa-github" /> Repo
       </a>
     </>
@@ -83,7 +83,7 @@ const Language = ({ languages_url, repo_url }) => {
         ? array.map((language) => (
             <a
               key={language} 
-              className="badge-dark badge card-link"
+              className="badge bg-secondary text-light card-link"
               href={repo_url + `/search?l=${language}`}
               target=" _blank"
             >
@@ -128,8 +128,7 @@ const CardFooter = ({ star_count, repo_url, pushed_at }) => {
         className="text-dark text-decoration-none"
       >
         <span className="text-dark card-link mr-4">
-          <i className="fab fa-github" /> Stars{" "}
-          <span className="badge badge-dark">{star_count}</span>
+          <i className="fab fa-github" /><i className="fa fa-star"/> {" "+star_count + " "}
         </span>
       </a>
       <small className="text-muted">Updated {updated_at}</small>

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { NavHashLink as Link } from 'react-router-hash-link';
+import { HashLink as Link } from 'react-router-hash-link';
 import { useScrollPosition } from '../js/useScrollPosition';
 import useResizeObserver from '../js/useResizeObserver';
 import {useLoadEvent} from '../js/useLoadEvent';

@@ -3,7 +3,7 @@ import Tab from "react-bootstrap/Tab";
 import Tabs from "react-bootstrap/Tabs";
 import SkillsTab from "./SkillsTab";
 import Row from "react-bootstrap/Row";
-import { Jumbotron, Container } from "react-bootstrap";
+import { Container } from "react-bootstrap";
 import { useScrollPosition } from "../js/useScrollPosition";
 
 function Skills({ heading, hardSkills, softSkills }) {
@@ -18,7 +18,7 @@ function Skills({ heading, hardSkills, softSkills }) {
     skillsTabRef
   );
   return (
-    <Jumbotron ref={skillsTabRef} fluid className="bg-white m-0" id="skills">
+    <div ref={skillsTabRef} fluid className="bg-light p-5 rounded-lg container-fluid bg-white m-0" id="skills">
       <Container className="p-5 ">
         <h2 ref={skillsTabRef} className="display-4 pb-5 text-center">
           {heading}
@@ -48,7 +48,7 @@ function Skills({ heading, hardSkills, softSkills }) {
           </Tab>
         </Tabs>
       </Container>
-    </Jumbotron>
+    </div>
   );
 }
 

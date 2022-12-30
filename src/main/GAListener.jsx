@@ -1,26 +1,49 @@
 import {useEffect} from "react";
 import ReactGA from "react-ga";
-import {withRouter} from "react-router";
+
+import {
+  useLocation,
+  useNavigate,
+  useParams
+} from "react-router-dom";
+
 import PropTypes from "prop-types";
 
+function withRouter(Component) {
+  function ComponentWithRouterProp(props) {
+    let location = useLocation();
+    let navigate = useNavigate();
+    let params = useParams();
+    return (
+      <Component
+        {...props}
+        router={{ location, navigate, params }}
+      />
+    );
+  }
+
+  return ComponentWithRouterProp;
+}
 
 function sendPageView(location) {
   ReactGA.set({page: location.pathname});
   ReactGA.pageview(location.pathname);
+  console.log(location.pathname);
+  console.log("miiinchi");
 }
 
-function GAListener({children, trackingId, history}) {
+function GAListener({trackingId}) {
+  let location = useLocation();
+  console.log(location);
   useEffect(() => {
     ReactGA.initialize(trackingId, {gaOptions: { consent:'default',
       ad_storage: 'denied',
       analytics_storage: 'denied'
     }
   });
-    sendPageView(history.location);
-    return history.listen(sendPageView);
-  }, [history, trackingId]);
-
-  return children;
+    return sendPageView(location);
+  }, [location, trackingId]);
+  return null;
 }
 
 GAListener.propTypes = {

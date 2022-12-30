@@ -1,6 +1,5 @@
 import React, { useState, useEffect, useCallback } from "react";
 import Container from "react-bootstrap/Container";
-import Jumbotron from "react-bootstrap/Jumbotron";
 import Row from "react-bootstrap/Row";
 import ProjectCard from "./ProjectCard";
 import axios from "axios";
@@ -35,6 +34,7 @@ const Project = ({ heading, username, length, specfic, exclude}) => {
       const response = await axios.get(allReposAPI);
       
       let list = [];
+      console.log()
       for(let i = 0; i < response.data.length; i ++){
         if (specfic.includes(response.data[i].name)){
           list.push(i);
@@ -43,28 +43,43 @@ const Project = ({ heading, username, length, specfic, exclude}) => {
           list.push(i);
         }
       }
+
       for (let i = list.length-1; i >= 0 ; i--){
         response.data.splice(list[i],1);
-      }
-
-      // slicing to the length
-      try{
-        repoList = [...response.data.slice(0, length - specfic.length)];
-      }
-      catch(error){
-        console.log(error);
       }
 
       // adding specified repos
       try {
         for (let repoName of specfic) {
-          const response = await axios.get(`${specficReposAPI}/${repoName}`);
-          repoList.unshift(response.data);
+          const response2 = await axios.get(`${specficReposAPI}/${repoName}`);
+          response.data.unshift(response2.data);
         }
       } catch (error) {
         console.error(error.message);
       }
       
+      let names = [];
+      list = [];
+      
+      for (let i = 0; i < response.data.length ; i++){
+        if (names.includes(response.data[i].name)){
+          list.push(i);
+        }
+        else names.push(response.data[i].name);
+      }
+
+      for (let i = list.length-1; i >= 0 ; i--){
+        response.data.splice(list[i],1);
+      }
+      
+      // slicing to the length
+      try{
+        repoList = [...response.data.slice(0, length)];
+      }
+      catch(error){
+        console.log(error);
+      }
+
       // setting projectArray
       // TODO: remove the duplication.
       setProjectsArray(repoList);
@@ -78,7 +93,7 @@ const Project = ({ heading, username, length, specfic, exclude}) => {
   }, [fetchRepos]);
 
   return (
-    <Jumbotron fluid id="projects" className="bg-light m-0">
+    <div id="projects" className="bg-light p-5 rounded-lg container-fluid m-0">
       <Container className="">
         <h2 className="display-4 pb-5 text-center">{heading}</h2>
         <Row>
@@ -99,7 +114,7 @@ const Project = ({ heading, username, length, specfic, exclude}) => {
               ))}
         </Row>
       </Container>
-    </Jumbotron>
+    </div>
   );
 };
 

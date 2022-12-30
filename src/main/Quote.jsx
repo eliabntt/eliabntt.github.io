@@ -6,6 +6,7 @@ const Quote = ({ quote }) => {
     <div className="px-2 mb-5">
       <blockquote className="small blockquote text-muted">
         <p className="mb-0">{text}</p>
+        <p></p>
         <footer className="blockquote-footer">{by} </footer>
       </blockquote>
     </div>
