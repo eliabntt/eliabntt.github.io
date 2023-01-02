@@ -23,12 +23,12 @@ const scrollWithOffset = (el) => {
 }
 
 const NavLinkTo = ({ active, title, anchor, onClick }) => (
-  <Link className={`nav-link lead ${active}`} onClick={onClick}
+  <Link className={`nav-link lead ${active} ms-2 ms-md-2`} onClick={onClick}
      to={`/${anchor}#`}>{title}</Link>
 );
 
 const NavLink = ({ active, title, anchor, onClick }) => (
-  <Link className={`nav-link lead ${active}`} onClick={onClick}
+  <Link className={`nav-link lead ${active} ms-2 ms-md-2`} onClick={onClick}
      to={`/#${anchor}`} scroll={el => scrollWithOffset(el)}>{title}</Link>
 
 );
@@ -98,15 +98,15 @@ const Navigation = React.forwardRef((props, ref)  => {
       expand="lg"
     >
       <NavBar title="Home" active={isTop} />
-      <Navbar.Toggle onClick={() => setExpanded(expanded ? false : "expanded")} aria-controls="basic-navbar-nav" />
+      <Navbar.Toggle onClick={() => setExpanded(expanded ? false : "expanded")} aria-controls="basic-navbar-nav" className='me-3' />
       <Navbar.Collapse id="basic-navbar-nav">
-        <Nav className="mr-auto">
+        <Nav className="me-auto ms-auto">
           {/* {about.show && (
             <NavLink onClick={() => setExpanded(false)} title="About Me" active={active} anchor="aboutme" />
           )} */}
 
           <Nav.Link
-            className="nav-link lead"
+            className="nav-link lead me ms-2 ms-md-2"
             href={about.resume}
             target="_blank"
             rel="noreferrer noopener"
@@ -129,17 +129,17 @@ const Navigation = React.forwardRef((props, ref)  => {
           )}
 
           {repos.show && (
-            <NavLink onClick={() => setExpanded(false)} title="Code updates" active={active} anchor="projects" />
+            <NavLink  className="ms-2 ms-md-2"  onClick={() => setExpanded(false)} title="Code updates" active={active} anchor="projects" />
           )}
           
           {getInTouch.show && (
-            <NavLink onClick={() => setExpanded(false)} title="Get in Touch" active={active} anchor="getintouch" />
+            <NavLink  className="ms-2 ms-md-2"  onClick={() => setExpanded(false)} title="Get in Touch" active={active} anchor="getintouch" />
           )}
 
           {skills.show && (
             <Nav.Link
               onClick={() => setExpanded(false)}
-              className="nav-link lead"
+              className="nav-link lead ms-2 ms-md-2"
               href={process.env.PUBLIC_URL + '/#skills'}
             >
               Skills
@@ -157,7 +157,7 @@ const Navigation = React.forwardRef((props, ref)  => {
 
 const NavBar = ({active, title, anchor}) => (
   <Link className={`${
-    !active ? 'brand' : 'brand-black'
+    !active ? 'brand ms-3' : 'brand-black ms-3'
   }`} 
      to={`/#home`}>{}   
      <img

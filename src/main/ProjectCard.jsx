@@ -127,7 +127,7 @@ const CardFooter = ({ star_count, repo_url, pushed_at }) => {
         target=" _blank"
         className="text-dark text-decoration-none"
       >
-        <span className="text-dark card-link mr-4">
+        <span className="text-dark card-link me-4 ms-4">
           <i className="fab fa-github" /><i className="fa fa-star"/> {" "+star_count + " "}
         </span>
       </a>
