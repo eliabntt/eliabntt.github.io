@@ -3,6 +3,10 @@ import bloglist from "../main/blog";
 import { HashLink as Link } from 'react-router-hash-link';
 import NotFound from "../main/NotFound";
 import { useParams } from "react-router";
+import {
+  useLocation,
+  useNavigate,
+} from "react-router-dom";
 
 const scrollWithOffset = (el) => {
   const yCoordinate = el.getBoundingClientRect().top + window.pageYOffset;
@@ -12,6 +16,7 @@ const scrollWithOffset = (el) => {
 
 const BlogPost = React.forwardRef((props,ref) => {
   let params = useParams();
+  let navigate = useNavigate();
   const {id} = params;
   const post = bloglist[id];
   if (post === undefined){
@@ -30,7 +35,7 @@ const BlogPost = React.forwardRef((props,ref) => {
           {post.getBlog()}
           <h3>
           <div>
-            <button role="button" className="btn btn-outline-dark btn-lg" onClick={() => {props.history.goBack();}} style={{margin:"2px"}}>Go Back</button>
+            <button role="button" className="btn btn-outline-dark btn-lg" onClick={() => {navigate(-1);}} style={{margin:"2px"}}>Go Back</button>
             <Link to={`/blog#`}  scroll={el => scrollWithOffset(el)} role="button" className="btn btn-outline-dark btn-lg" >
               Blog list{" "}
             </Link>
