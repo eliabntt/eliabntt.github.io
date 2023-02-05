@@ -1,1 +1,38 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"/><link rel="shortcut icon" href="/favicon.ico"/><meta name="viewport" content="width=device-width,initial-scale=1"/><meta name="google-site-verification" content="3V7_gcolB6Agyp5zwU37tSgAjbVB5QlHuYaF2LC71zY"/><link href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" rel="stylesheet"/><script src="https://github.githubassets.com/assets/environment.js"></script><script src="https://github.githubassets.com/assets/behaviors.js"></script><script src="https://github.githubassets.com/assets/chunk-vendor.js"></script><script src="https://github.githubassets.com/assets/chunk-frameworks.js"></script><link rel="canonical" href="https://eliabntt.github.io/"/><base href="/"><meta name="theme-color" content="#000000"/><meta property="og:description" content="I am Elia Bonetto, a Ph.D. student at Max Planck Institute for Intelligent Systems in Tübingen, Germany and this is my personal webpage."/><meta property="og:title" content="Elia Bonetto's webpage"/><meta property="og:image" content="/social-image.png"/><meta property="og:url" content=""/><meta property="og:type" content="website"/><meta property="og:locale" content="en_US"/><link rel="apple-touch-icon" href="logo128.png"/><link rel="manifest" href="/manifest.json"/><meta property="twitter:image" content="/social-image.png"/><title>Elia Bonetto's webpage</title><script defer="defer" src="/static/js/main.a214e619.js"></script><link href="/static/css/main.de310222.css" rel="stylesheet"></head><body><noscript>You need to enable JavaScript to run this app.</noscript><div id="root"></div><h1 visibility: hidden>Elia Bonetto's website</h1></body></html>
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Single Page Apps for GitHub Pages</title>
+    <script type="text/javascript">
+      // Single Page Apps for GitHub Pages
+      // MIT License
+      // https://github.com/rafgraph/spa-github-pages
+      // This script takes the current url and converts the path and query
+      // string into just a query string, and then redirects the browser
+      // to the new url with only a query string and hash fragment,
+      // e.g. https://www.foo.tld/one/two?a=b&c=d#qwe, becomes
+      // https://www.foo.tld/?/one/two&a=b~and~c=d#qwe
+      // Note: this 404.html file must be at least 512 bytes for it to work
+      // with Internet Explorer (it is currently > 512 bytes)
+
+      // If you're creating a Project Pages site and NOT using a custom domain,
+      // then set pathSegmentsToKeep to 1 (enterprise users may need to set it to > 1).
+      // This way the code will only replace the route part of the path, and not
+      // the real directory in which the app resides, for example:
+      // https://username.github.io/repo-name/one/two?a=b&c=d#qwe becomes
+      // https://username.github.io/repo-name/?/one/two&a=b~and~c=d#qwe
+      // Otherwise, leave pathSegmentsToKeep as 0.
+      let currentURL = window.location.pathname
+      let lowerCaseURL = currentURL.toLowerCase();
+      console.log(lowerCaseURL);
+      console.log(lowerCaseURL === "/grade-rr");
+      if (lowerCaseURL === "/grade-rr" && currentURL !== "/GRADE-RR")
+         window.location.replace("GRADE-RR");
+      else
+        window.location.replace("#/404")
+
+    </script>
+  </head>
+  <body>
+  </body>
+</html>
