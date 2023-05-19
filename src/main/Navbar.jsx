@@ -127,6 +127,10 @@ const Navigation = React.forwardRef((props, ref)  => {
           {blog.show && (
             <NavLinkTo onClick={() => setExpanded(false)} title="My Blog" active={active} anchor="blog" />
           )}
+          
+          {onlineWritings.show && (
+            <NavLink onClick={() => setExpanded(false)} title="Main Works" active={active} anchor="publication" />
+          )}
 
           {repos.show && (
             <NavLink  className="ms-2 ms-md-2"  onClick={() => setExpanded(false)} title="Code updates" active={active} anchor="projects" />
