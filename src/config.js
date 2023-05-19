@@ -12,17 +12,17 @@ const mainBody = {
   message: ' Merging Computer Vision, Robotics and Machine Learning. ',
   icons: [
     {
-      image: 'fa-github',
+      image: 'fab fa-github',
       url: 'https://github.com/eliabntt'
     },
     {
-      image: 'fa-instagram',
-      url: 'https://www.instagram.com/eliabonetto/'
+      image: 'fab fa-linkedin',
+      url: 'https://www.linkedin.com/in/elia-bonetto/'
     },
     {
-      image: 'fa-linkedin',
-      url: 'https://www.linkedin.com/in/elia-bonetto/'
-    }
+      image: 'fas fa-file',
+      url: 'https://drive.google.com/file/d/1F92p6wsHG9z7Q_nQ6D9HE1TE94AElYND/view?usp=share_link'
+    },
   ],
   imgs: [
     {img: require('./img/1.jpg')},
@@ -44,11 +44,12 @@ const about = {
   imageLink: require('./img/me.jpg'),
   imageSize: 400,
   message:
-    'I am Elia Bonetto, a Ph.D. student at Max Planck Institute for Intelligent Systems in Tübingen, Germany. \
-    I am currently enrolled in the IMPRS-IS program under the supervision of <a href="https://www.aamirahmad.de/">Aamir Ahmad</a>, and <a href="https://ps.is.mpg.de/~black">Michael J. Black</a>. \
-     As you can see from the pictures above in my free time I like watching movies, hiking, taking photos, building legos, and cooking.',
+    'Hello there! I\'m Elia Bonetto, a Ph.D. student at the prestigious Max Planck Institute for Intelligent Systems in Tübingen, Germany. Currently enrolled in the IMPRS-IS program under the guidance of <a href="https://www.aamirahmad.de/">Aamir Ahmad</a> and <a href="https://ps.is.mpg.de/~black">Michael J. Black</a>. \
+    With a deep passion for both computer vision and robotics, I am fascinated by the profound connection that exists between these two fields and to explore the exciting intersection where they converge. <br><br>\
+    When I\'m not immersed in the world of cutting-edge research, you\'ll find me indulging in old movies, going down hiking trails, unleashing my creativity with Lego masterpieces, and whipping up food in the kitchen. <br><br> \
+    I\'m now actively seeking an internship opportunity where I can combine my love for computer vision, robotics, and their dynamic relationship. If you\'re looking for a dedicated and motivated intern to contribute to your team, let\'s connect and explore the possibilities together!',
   resume:
-    'https://drive.google.com/file/d/1F92p6wsHG9z7Q_nQ6D9HE1TE94AElYND/view?usp=share_link'
+  'https://drive.google.com/file/d/1F92p6wsHG9z7Q_nQ6D9HE1TE94AElYND/view?usp=share_link'
 };
 
 const repos = {
@@ -132,6 +133,23 @@ const onlineWritings = {
     //'Japanese proverb' 
   },
   list: [
+    
+    {
+      title:
+        ['Synthetic Data-based Detection of Zebras in Drone Imagery ',<span>&#8212;</span>,' unpublished'],
+      url: 'https://arxiv.org/abs/2305.00432',
+      description:
+        'Showing that we can directly learn to detect Zebras from aerial images by using only data generated with GRADE without any real-world manually-labelled image'
+    },
+    
+    {
+      title:
+        ['GRADE: Generating Realistic Animated Dynamic Environments for Robotics Research ',<span>&#8212;</span>,' unpublished'],
+      url: 'https://arxiv.org/abs/2303.04466',
+      description:
+        'My framework to simulate realistic dynamic environments. Using IsaacSim and the USD file format I developed a set of tools to take care of generating environments, placing animated subjects, control the robot, generate and process the data. I used that to show limitations of the current SOA of dynamic SLAM and sim2real learning transfer.'
+    },
+
     {
       title:
         'iRotate: Active Visual SLAM for Omnidirectional Robots',
@@ -188,10 +206,32 @@ const news = {
   show: true,
   heading: "Latest News!",
   list: [{
-    date: "December 2022",
-    title: 'GRADE accepted as presentation at the next GTC',
-    description: 'Our upcoming data generation pipeline will be presented at GTC 2023 in March. Stay tuned.'
+    date: "May 2023",
+    title: 'Learning from synthetic data workshop paper accepted at ICRA 2023',
+    url: 'https://openreview.net/forum?id=SUIOuV2y-Ce',
+  },{
+    date: "May 2023",
+    title: 'The limitations of dynamic SLAM systems accepted as workshop paper at ICRA 2023',
+    url: 'https://arxiv.org/abs/2305.04286',
+  },{
+    date: "May 2023",
+    title: 'Learning to detect Zebras from aerial views work submitted for review at ECMR2023',
+    url: 'https://arxiv.org/abs/2305.00432',
+  },{
+    date: "March 2023",
+    title: 'Our animated dynamic environment generation pipeline (GRADE) submitted for review at T-RO',
+    url: 'https://eliabntt.github.io/GRADE-RR',
+  },{
+    date: "March 2023",
+    title: 'GRADE presented at Nvidia GTC',
+    url: 'https://www.nvidia.com/en-us/on-demand/session/gtcspring23-s51570/',
+    description: 'Our upcoming data generation pipeline presented at GTC 2023.'
 },{
+  date: "March 2023",
+  title: 'GRADE pipeline online',
+  url: 'https://eliabntt.github.io/GRADE-RR',
+},
+{
     date: "June - September 2022",
     title: 'Summer internship at Nissan',
     description: 'Worked on path following and lane change suggestion with minimal information maps and road level localization (not lane-level).'

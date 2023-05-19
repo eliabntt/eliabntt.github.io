@@ -1,5 +1,5 @@
 import {useEffect} from "react";
-import ReactGA from "react-ga";
+import ReactGA from "react-ga4";
 
 import {
   useLocation,
@@ -26,14 +26,13 @@ function withRouter(Component) {
 }
 
 function sendPageView(location) {
-  ReactGA.set({page: location.pathname});
-  ReactGA.pageview(location.pathname);
+  ReactGA.send({ hitType: "pageview", page: location.pathname});
 }
 
 function GAListener({trackingId}) {
   let location = useLocation();
   useEffect(() => {
-    ReactGA.initialize(trackingId, { //debug:true
+    ReactGA.initialize(trackingId, { 
   });
     return sendPageView(location);
   }, [location, trackingId]);

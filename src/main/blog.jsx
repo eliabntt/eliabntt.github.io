@@ -29,7 +29,7 @@ const irotate = new BlogBuilder({
   We evaluate our approach based on the explored area per meter travelled, absolute trajectory error, wheel rotation per meter travelled, and accuracy and entropy of the final map.\
   The utility used is based on the Shannon entropy definition. Different utility function have been also explored and will be presented in a different blogpost.\
   We exploit the mobility of the omnidirectional platform to continuosly control the camera heading. We expand this method to different platforms in a subsequent work.")
-  .addHeading("Our approach --- in brief")
+  .addHeading(["Our approach ",<span>&#8212;</span>," in brief"])
   .addParagraph(
     "The classical active SLAM procedure consists of three steps: selection of candidate actions (goals), computation of utilities, and execution of the chosen action. \
     The procedure is then repeated endlessly until either a stop condition is met (e.g. no more goals available) or a certain amount of time has passed.\

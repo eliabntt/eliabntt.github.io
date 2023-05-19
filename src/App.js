@@ -145,13 +145,13 @@ const App = () => {
       Cookies.remove("_ga");
       Cookies.remove("_gat");
       Cookies.remove("_gid");
-      window['ga-disable-UA-203204240-1'] = true;
+      window['ga-disable-G-RYLD885H00'] = true;
     };
 
     useEffect(() => {
       const isConsent = getCookieConsentValue();
       if (isConsent !== "true") {
-        window['ga-disable-UA-203204240-1'] = true;
+        window['ga-disable-G-RYLD885H00'] = true;
       }
     }, []);
 
@@ -163,7 +163,7 @@ const App = () => {
       {navBar.show && <Navbar ref={titleRef}/>}
 
       {consented === "true" && <MyFunc ref={titleRef}/>}
-      {consented === "true" && <GAListener trackingId="UA-203204240-1"></GAListener>}
+      {consented === "true" && <GAListener trackingId="G-RYLD885H00"></GAListener>}
       {consented !== "true" && <MyFunc ref={titleRef}/>}
 
 
