@@ -130,8 +130,8 @@ const App = () => {
     let lowerCaseURL = currentURL.toLowerCase();
     console.log(lowerCaseURL);
     console.log(lowerCaseURL === "/grade-rr");
-    if (lowerCaseURL === "/grade-rr" && currentURL !== "/GRADE-RR")
-        window.location.replace("GRADE-RR");
+    if (lowerCaseURL === "/grade-rr")
+        window.location.href('https://grade.is.tue.mpg.de');
 
     const [value, setValue] = useState();
 
