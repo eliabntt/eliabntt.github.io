@@ -22,12 +22,10 @@
       // https://username.github.io/repo-name/one/two?a=b&c=d#qwe becomes
       // https://username.github.io/repo-name/?/one/two&a=b~and~c=d#qwe
       // Otherwise, leave pathSegmentsToKeep as 0.
-      let currentURL = window.location.pathname
+      let currentURL = window.location.href;
       let lowerCaseURL = currentURL.toLowerCase();
-      console.log(lowerCaseURL);
-      console.log(lowerCaseURL === "/grade-rr");
-      if (lowerCaseURL === "/grade-rr" && currentURL !== "/GRADE-RR")
-         window.location.replace("GRADE-RR");
+      if (lowerCaseURL.contains("grade"))
+        window.location.href = "https://grade.is.tue.mpg.de";
       else
         window.location.replace("/#/404")
 
