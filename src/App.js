@@ -126,12 +126,12 @@ const MyFunc = React.forwardRef((props, titleRef)=> {
 });
 
 const App = () => {
-    let currentURL = window.location.pathname
+    let currentURL = window.location.href;
     let lowerCaseURL = currentURL.toLowerCase();
     console.log(lowerCaseURL);
-    console.log(lowerCaseURL === "/grade-rr");
-    if (lowerCaseURL === "/grade-rr")
-        window.location.href('https://grade.is.tue.mpg.de');
+    console.log(lowerCaseURL.includes("/grade-rr"));
+    if (lowerCaseURL.includes("grade-rr") || lowerCaseURL.includes("grade"))
+        window.location.href = "https://grade.is.tue.mpg.de/";
 
     const [value, setValue] = useState();
 
