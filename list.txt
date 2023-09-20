@@ -1,2 +1,0 @@
-file 'irotate1.gif'
-file 'irotate2.gif'
