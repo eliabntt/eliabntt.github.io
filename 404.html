@@ -24,7 +24,7 @@
       // Otherwise, leave pathSegmentsToKeep as 0.
       let currentURL = window.location.href;
       let lowerCaseURL = currentURL.toLowerCase();
-      if (lowerCaseURL.contains("grade"))
+      if (lowerCaseURL.includes("grade"))
         window.location.href = "https://grade.is.tue.mpg.de";
       else
         window.location.replace("/#/404")
