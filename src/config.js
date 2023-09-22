@@ -21,7 +21,7 @@ const mainBody = {
     },
     {
       image: 'fas fa-file',
-      url: 'https://drive.google.com/file/d/1F92p6wsHG9z7Q_nQ6D9HE1TE94AElYND/view?usp=share_link'
+      url: 'https://drive.google.com/file/d/1tVYONqKZDEgR5mPWv-tMlykpMcDTvG47/view?usp=sharing'
     },
   ],
   imgs: [
@@ -49,7 +49,7 @@ const about = {
     When I\'m not immersed in the world of cutting-edge research, you\'ll find me indulging in old movies, going down hiking trails, unleashing my creativity with Lego masterpieces, and whipping up food in the kitchen. <br><br> \
     I\'m now actively seeking an internship opportunity where I can combine my love for computer vision, robotics, and their dynamic relationship. If you\'re looking for a dedicated and motivated intern to contribute to your team, let\'s connect and explore the possibilities together!',
   resume:
-  'https://drive.google.com/file/d/1F92p6wsHG9z7Q_nQ6D9HE1TE94AElYND/view?usp=share_link'
+  'https://drive.google.com/file/d/1tVYONqKZDEgR5mPWv-tMlykpMcDTvG47/view?usp=sharing'
 };
 
 const repos = {
