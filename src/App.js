@@ -53,7 +53,7 @@ const Home = React.forwardRef((props, ref) => {
         imgs={mainBody.imgs}
       />
     
-      {about.show && (
+      {/* {about.show && (
         <AboutMe
           heading={about.heading}
           message={about.message}
@@ -61,35 +61,35 @@ const Home = React.forwardRef((props, ref) => {
           imgSize={about.imageSize}
           resume={about.resume}
         />
-      )}
+      )} */}
 
-      {news.show && (<News
+      {/* {news.show && (<News
         heading={news.heading}
         list={news.list}
-        />)}
+        />)} */}
 
-      {experiences.show && <Experience experiences={experiences} />}
+      {/* {experiences.show && <Experience experiences={experiences} />} */}
 
-      {leadership.show && (
+      {/* {leadership.show && (
         <Leadership
           heading={leadership.heading}
           message={leadership.message}
           img={leadership.images}
           imageSize={leadership.imageSize}
         />
-      )}
+      )} */}
    
-      {blog.show && (<Blog/>)}
+      {/* {blog.show && (<Blog/>)} */}
 
-      {onlineWritings.show && (
+      {/* {onlineWritings.show && (
         <Publication
           quote={onlineWritings.quote}
           heading={onlineWritings.heading}
           list={onlineWritings.list}
         />
-      )}
+      )} */}
       
-      {repos.show && (
+      {/* {repos.show && (
         <Project
           heading={repos.heading}
           username={repos.gitHubUsername}
@@ -97,15 +97,15 @@ const Home = React.forwardRef((props, ref) => {
           specfic={repos.specificRepos}
           exclude={repos.excludeRepos}
         />
-      )}
+      )} */}
 
-      {skills.show && (
+      {/* {skills.show && (
         <Skills
           heading={skills.heading}
           hardSkills={skills.hardSkills}
           softSkills={skills.softSkills}
         />
-      )}
+      )} */}
 
 
     </>

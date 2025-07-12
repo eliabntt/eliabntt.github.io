@@ -44,10 +44,15 @@ const about = {
   imageLink: require('./img/me.jpg'),
   imageSize: 400,
   message:
-    'Hello there! I\'m Elia Bonetto, a Ph.D. student at the prestigious Max Planck Institute for Intelligent Systems in Tübingen, Germany. Currently enrolled in the IMPRS-IS program under the guidance of <a href="https://www.aamirahmad.de/">Aamir Ahmad</a> and <a href="https://ps.is.mpg.de/~black">Michael J. Black</a>. \
-    With a deep passion for both computer vision and robotics, I am fascinated by the profound connection that exists between these two fields and to explore the exciting intersection where they converge. <br><br>\
-    When I\'m not immersed in the world of cutting-edge research, you\'ll find me indulging in old movies, going down hiking trails, unleashing my creativity with Lego masterpieces, and whipping up food in the kitchen. <br><br> \
-    I\'m now actively seeking an internship opportunity where I can combine my love for computer vision, robotics, and their dynamic relationship. If you\'re looking for a dedicated and motivated intern to contribute to your team, let\'s connect and explore the possibilities together!',
+    'Hello there! I am Elia Bonetto. I\'m in the process of concluding my Ph.D. at the Perceiving Systems department of the Max Planck Institute for Intelligent Systems. Throughout my whole career, I studied the relationship between \
+    perception and action, especially focusing on the intersection of robotics, computer vision, and learning.<br>Some of my key achievements include developing an Active Visual SLAM method\
+    for efficient autonomous indoor environment exploration using RGB-D data, creating the GRADE simulation system on top of NVIDIA Isaac Sim, enhancing visual odometry in dynamic environments,\
+      working on deep camera best‐heading prediction in 3D, and advancing syn‐to‐real learning for animal detection, segmentation, and pose estimation.<br>\
+    Since I like to explore new challenges, work in teams, and touch different subjects, I have also contributed to the development of a multi-robot formation for human motion capture using deep reinforcement learning, and I have worked on a multi-view fusion network for aerial 3D human pose and shape estimation.\
+    Beyond that, I also researched assisted driving technologies at Nissan during an internship. I have a strong background in Python and various machine learning frameworks, including PyTorch and TensorFlow. I am proficient in C++ and have experience with ROS, OpenCV, and various computer vision libraries.\
+    Recently, I joined Cartesian Systems as a Machine Learning/Computer Vision Scientist after a very successful internship.\
+     Cartesian is a seed stage MIT startup solving the challenge of indoor GPS and inventory management for retailers and logistics operators. In my role I\'m focused on a variety of projects, from building precise environment maps in out‐of‐distribution environments to RFID-based localization using DL.<br>\
+     My main interests lie in integrating perception and action, focusing on 3D dynamic environment reconstruction and integrating language in perception/action models towards ubiquitous robotics, AR, and VR applications that can impact people\’s lives.',
   resume:
   'https://drive.google.com/file/d/1tVYONqKZDEgR5mPWv-tMlykpMcDTvG47/view?usp=sharing'
 };

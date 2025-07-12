@@ -116,7 +116,7 @@ const Navigation = React.forwardRef((props, ref)  => {
             Resume
           </Nav.Link>
           
-          {news.show && (
+          {/* {news.show && (
             <NavLink onClick={() => setExpanded(false)} title="News" active={active} anchor="news-div" />
           )}        
 
@@ -148,7 +148,7 @@ const Navigation = React.forwardRef((props, ref)  => {
             >
               Skills
             </Nav.Link>
-          )}
+          )} */}
 
           {(
             <NavLinkTo onClick={() => setExpanded(false)} title="Try this 404" active={active} anchor="404" />
