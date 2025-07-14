@@ -9,7 +9,7 @@ const mainBody = {
   firstName: 'Elia',
   middleName: '',
   lastName: 'Bonetto',
-  message: ' Merging Computer Vision, Robotics and Machine Learning. ',
+  message: ' Fusing Computer Vision, Robotics and Machine Learning. ',
   icons: [
     {
       image: 'fab fa-github',
@@ -22,6 +22,16 @@ const mainBody = {
     {
       image: 'fas fa-file',
       url: 'https://drive.google.com/file/d/1tVYONqKZDEgR5mPWv-tMlykpMcDTvG47/view?usp=sharing'
+    },
+    ,
+    {
+      // google scholar icon
+      image: 'fas fa-graduation-cap',
+      url: 'https://scholar.google.com/citations?hl=en&user=tEfNxsIAAAAJ&view_op=list_works&sortby=pubdate'
+    },
+    {
+      image: 'fas fa-envelope',
+      url: 'mailto:eliabntt94@gmail.com'
     },
   ],
   imgs: [
@@ -41,7 +51,7 @@ const mainBody = {
 const about = {
   show: true,
   heading: 'About Me',
-  imageLink: require('./img/me.jpg'),
+  imageLink: require('./img/me.jpeg'),
   imageSize: 400,
   message:
     'Hello there! I am Elia Bonetto. I\'m in the process of concluding my Ph.D. at the Perceiving Systems department of the Max Planck Institute for Intelligent Systems. Throughout my whole career, I studied the relationship between \
@@ -58,7 +68,7 @@ const about = {
 };
 
 const repos = {
-  show: true,
+  show: false,
   heading: 'Latest Code Updates',
   gitHubUsername: 'eliabntt',
   reposLength: 4,
@@ -67,7 +77,7 @@ const repos = {
 };
 
 const getInTouch = {
-  show: true,
+  show: false,
   heading: 'Get In Touch',
   message:
     "I'm currently looking for an internship in CV, robotics or ML! If you know of any positions available, if you have any questions, or if you just want to say hi, please feel free to email me at",
@@ -111,12 +121,12 @@ const leadership = {
     'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Vitae auctor eu augue ut lectus arcu bibendum at varius. Libero justo laoreet sit amet cursus sit amet. Imperdiet dui accumsan sit amet nulla facilisi morbi. At auctor urna nunc id. Iaculis urna id volutpat lacus laoreet non curabitur gravida. Et magnis dis parturient montes nascetur ridiculus mus mauris. In nisl nisi scelerisque eu ultrices vitae auctor. Mattis nunc sed blandit libero volutpat sed cras ornare. Pulvinar neque laoreet suspendisse interdum consectetur libero.',
   images: [
     {
-      img: require("./img/me.jpg"),
+      img: require("./img/me.jpeg"),
       label: 'First slide label',
       paragraph: 'Nulla vitae elit libero, a pharetra augue mollis interdum.'
     },
     {
-      img: require("./img/me.jpg"),
+      img: require("./img/me.jpeg"),
       label: 'Second slide label',
       paragraph: 'Nulla vitae elit libero, a pharetra augue mollis interdum.'
     }

@@ -101,9 +101,9 @@ const Navigation = React.forwardRef((props, ref)  => {
       <Navbar.Toggle onClick={() => setExpanded(expanded ? false : "expanded")} aria-controls="basic-navbar-nav" className='me-3' />
       <Navbar.Collapse id="basic-navbar-nav">
         <Nav className="me-auto ms-auto">
-          {/* {about.show && (
+          {about.show && (
             <NavLink onClick={() => setExpanded(false)} title="About Me" active={active} anchor="aboutme" />
-          )} */}
+          )}
 
           <Nav.Link
             className="nav-link lead me ms-2 ms-md-2"

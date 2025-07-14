@@ -53,9 +53,9 @@ const MainBody = React.forwardRef(
             ))}
           </div>
           
-          {/* <Link ref={ref} className="btn btn-outline-light btn-lg" to={`/#aboutme`} scroll={el => scrollWithOffset(el)} role="button">          
+          <Link ref={ref} className="btn btn-outline-light btn-lg" to={`/#aboutme`} scroll={el => scrollWithOffset(el)} role="button">          
             More about me
-          </Link> */}
+          </Link>
           </Container>
       </div>
 

@@ -53,7 +53,7 @@ const Home = React.forwardRef((props, ref) => {
         imgs={mainBody.imgs}
       />
     
-      {/* {about.show && (
+      {about.show && (
         <AboutMe
           heading={about.heading}
           message={about.message}
@@ -61,7 +61,7 @@ const Home = React.forwardRef((props, ref) => {
           imgSize={about.imageSize}
           resume={about.resume}
         />
-      )} */}
+      )}
 
       {/* {news.show && (<News
         heading={news.heading}
